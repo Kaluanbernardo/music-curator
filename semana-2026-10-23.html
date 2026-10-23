@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Discos da semana · 23 out 2026 · Music Curator</title>
+<meta name="theme-color" content="#14121a">
+<style>
+:root{--bg:#14121a;--card:#1e1b27;--fg:#f2eff7;--mut:#a9a3b8;--acc:#1ed760;--line:#2e2a3a}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;padding:env(safe-area-inset-top) 0 40px}
+header{padding:28px 18px 8px;max-width:760px;margin:0 auto}
+header h1{font-size:1.7rem;line-height:1.2;margin:0 0 6px;letter-spacing:-.02em}
+header p{color:var(--mut);margin:4px 0}
+.note{background:#2a2438;border:1px solid #3d3552;border-radius:12px;padding:12px 14px;margin:14px 0 4px;color:var(--fg)}
+.stats{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.stats span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:.82rem;color:var(--mut)}
+main{max-width:760px;margin:0 auto;padding:8px 12px;display:grid;gap:18px}
+@media(min-width:900px){main{max-width:1100px;grid-template-columns:1fr 1fr}header{max-width:1100px}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.top{position:relative}.top img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;background:#000}
+.num{position:absolute;top:10px;left:10px;background:rgba(0,0,0,.72);color:#fff;font-weight:800;border-radius:10px;padding:2px 10px;font-size:1.1rem}
+.body{padding:14px 16px 18px}
+.badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.b{font-size:.74rem;font-weight:700;padding:3px 9px;border-radius:999px;letter-spacing:.01em}
+.nac{background:#0f3d24;color:#7ef0a8}.int{background:#1f2c48;color:#9cc0ff}
+.acc{background:#3a2a10;color:#ffcf73}.desc{background:#3b1834;color:#ff9ad8}
+h2{font-size:1.3rem;line-height:1.25;margin:2px 0}
+.artist{margin:0 0 6px;font-weight:600}.date{color:var(--mut);font-weight:400}
+h3{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin:14px 0 2px}
+.body p{margin:0}
+.src{margin-top:12px!important;font-size:.85rem;color:var(--mut)}.src a{color:#c9b8ff}
+.spot{display:block;text-align:center;margin-top:14px;background:var(--acc);color:#04120a;font-weight:800;text-decoration:none;padding:12px;border-radius:12px}
+.vote{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.v{font:inherit;font-weight:700;border-radius:12px;padding:12px 4px;border:1px solid var(--line);background:#26222f;color:var(--fg);cursor:pointer;min-height:48px}
+.v:active{transform:scale(.97)}.up:hover{border-color:#1ed760}.mid:hover{border-color:#ffcf73}.down:hover{border-color:#ff6b6b}
+.crit{list-style:none;padding:0;margin:4px 0 0;display:flex;flex-wrap:wrap;gap:8px}.crit a{display:inline-block;background:#26222f;border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:#c9b8ff;text-decoration:none;font-weight:600}.nota{color:var(--fg);font-weight:700}
+.pl{display:block;text-align:center;margin:12px 0 4px;background:var(--acc);color:#04120a;font-weight:800;text-decoration:none;padding:12px;border-radius:12px}
+.codes{margin-top:8px!important;font-size:.82rem;color:var(--mut);text-align:center}
+code{background:#0e0c13;border:1px solid var(--line);border-radius:6px;padding:1px 6px;color:var(--fg);user-select:all;-webkit-user-select:all}
+.ok{display:block;text-align:center;font-size:.85rem;color:#7ef0a8;margin-top:6px;min-height:1.2em}
+#toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(120%);background:#f2eff7;color:#14121a;font-weight:700;padding:10px 16px;border-radius:999px;box-shadow:0 6px 24px rgba(0,0,0,.4);transition:transform .25s;z-index:9;max-width:92vw;text-align:center}
+#toast.show{transform:translateX(-50%) translateY(0)}
+footer{max-width:760px;margin:24px auto 0;padding:0 18px;color:var(--mut);font-size:.82rem}
+</style></head><body>
+<header>
+ <h1>Discos da semana · 23 out 2026</h1>
+ <p>Music Curator · edição semanal · lançamentos de 17 a 23 de outubro de 2026</p>
+ <a class="pl" href="https://open.spotify.com/playlist/75UtesPPVNVaeKKi4CInCb" target="_blank" rel="noopener">▶ Ouvir tudo na playlist Week43 - Outubro - 2026</a>
+ <div class="note">Como suas notas pesaram: o 9 de Max Richter puxou Basinski e o soul orquestral de Younge; o 8,7 de Rachel Chinouriri trouxe o pop melódico de Fenne Lily, girl in red e Tuyo; Vanishing Twin (7) e Eels (7,3) abriram espaço para a psicodelia de Olivia Tremor Control e Caroline Rose; o 6 de Sain manteve um pé no rap (.Paak &amp; Cordae).</div>
+ <div class="stats"><span>12 discos</span><span>6 você acompanha</span><span>6 descobertas</span><span>4 nacionais (33%)</span></div>
+</header>
+<main>
+<article class="card" id="a1">
+ <div class="top"><img src="https://i.scdn.co/image/ab67616d0000b2732c5256aaa2bc881487862b93" alt="Capa de FUDGE" loading="lazy" width="640" height="640"><span class="num">1</span></div>
+ <div class="body">
+  <div class="badges"><span class="b int">🌍 Internacional</span><span class="b acc">Você acompanha</span></div>
+  <h2>FUDGE</h2>
+  <p class="artist">Michael Kiwanuka <span class="date">· 23 out 2026</span></p>
+  <h3>O que a crítica diz</h3><p>O Guardian vê um disco áspero e instintivo, mas exuberante e cheio de melodia; a NME e o Independent destacam que, após o AVC que Kiwanuka sofreu, o álbum soa mais solto e cru que Small Changes, sem perder o soul orquestral.</p>
+  <h3>Parece com</h3><p>Soul-rock dos anos 70 com cordas e coros, entre Bill Withers, Terry Callier e o psicodelismo de Love &amp; Hate.</p>
+  <h3>Por que ouvir</h3><p>Você segue Kiwanuka, e o lado orquestral e caloroso conversa com o Eels de Cookie Happened (7,3) que você curtiu.</p>
+  <h3>Críticas</h3><ul class="crit"><li><a href="https://www.theguardian.com/music/2026/oct/19/michael-kiwanuka-fudge-review-rough-and-instinctive-but-also-lush-and-alive-with-melody" target="_blank" rel="noopener">The Guardian</a></li><li><a href="https://www.nme.com/reviews/album/michael-kiwanuka-fudge-review-3973478" target="_blank" rel="noopener">NME</a></li><li><a href="https://www.independent.co.uk/arts-entertainment/music/reviews/michael-kiwanuka-fudge-review-stroke-health-b3070655.html" target="_blank" rel="noopener">The Independent</a></li></ul>
+  <p class="src">Fontes: <a href="https://www.theguardian.com/music/2026/oct/19/michael-kiwanuka-fudge-review-rough-and-instinctive-but-also-lush-and-alive-with-melody" target="_blank" rel="noopener">The Guardian</a> · <a href="https://www.nme.com/reviews/album/michael-kiwanuka-fudge-review-3973478" target="_blank" rel="noopener">NME</a> · <a href="https://www.independent.co.uk/arts-entertainment/music/reviews/michael-kiwanuka-fudge-review-stroke-health-b3070655.html" target="_blank" rel="noopener">The Independent</a> · <a href="https://open.spotify.com/album/4Qy4QeE6QL941JsIyEVqF2" target="_blank" rel="noopener">Spotify</a></p>
+  <a class="spot" href="https://open.spotify.com/album/4Qy4QeE6QL941JsIyEVqF2" target="_blank" rel="noopener">▶ Ouvir no Spotify</a>
+ </div>
+</article>
+<article class="card" id="a2">
+ <div class="top"><img src="https://i.scdn.co/image/ab67616d0000b273e9c1b191c7e4b2f85e6431e8" alt="Capa de Heavy Is The Crown" loading="lazy" width="640" height="640"><span class="num">2</span></div>
+ <div class="body">
+  <div class="badges"><span class="b int">🌍 Internacional</span><span class="b acc">Você acompanha</span></div>
+  <h2>Heavy Is The Crown</h2>
+  <p class="artist">Anderson .Paak, Cordae <span class="date">· 23 out 2026</span></p>
+  <h3>O que a crítica diz</h3><p>A Clash (8/10) elogia a química e o humor da dupla, com raízes no rap cômico; o The Arts Desk acha o disco energético, mas irregular, com faixas que não se sustentam.</p>
+  <h3>Parece com</h3><p>Rap com banda e groove de soul/funk, na linha de Malibu e Silk Sonic, com troca de versos ágil.</p>
+  <h3>Por que ouvir</h3><p>Você tem .Paak na biblioteca; é a opção mais leve e dançante da semana, perto do pop com groove de Rachel Chinouriri (8,7) e do boom bap de Sain (6).</p>
+  <h3>Críticas</h3><ul class="crit"><li><a href="https://www.clashmusic.com/reviews/anderson-paak-cordae-heavy-is-the-crown/" target="_blank" rel="noopener">Clash</a> <span class="nota">8/10</span></li><li><a href="https://theartsdesk.com/new-music/anderson-paak-and-cordae-are-energetic-uneven-heavy-crown" target="_blank" rel="noopener">The Arts Desk</a></li></ul>
+  <p class="src">Fontes: <a href="https://www.clashmusic.com/reviews/anderson-paak-cordae-heavy-is-the-crown/" target="_blank" rel="noopener">Clash</a> · <a href="https://theartsdesk.com/new-music/anderson-paak-and-cordae-are-energetic-uneven-heavy-crown" target="_blank" rel="noopener">The Arts Desk</a> · <a href="https://open.spotify.com/album/1pbMoqpMgCyjPefcJ9PKdq" target="_blank" rel="noopener">Spotify</a></p>
+  <a class="spot" href="https://open.spotify.com/album/1pbMoqpMgCyjPefcJ9PKdq" target="_blank" rel="noopener">▶ Ouvir no Spotify</a>
+ </div>
+</article>
+<article class="card" id="a3">
+ <div class="top"><img src="https://i.scdn.co/image/ab67616d0000b273248171b5102d7bcb32c5bc91" alt="Capa de Serenata" loading="lazy" width="640" height="640"><span class="num">3</span></div>
+ <div class="body">
+  <div class="badges"><span class="b nac">🇧🇷 Nacional</span><span class="b acc">Você acompanha</span></div>
+  <h2>Serenata</h2>
+  <p class="artist">Oswaldo Montenegro <span class="date">· 23 out 2026</span></p>
+  <h3>O que a crítica diz</h3><p>Ainda sem críticas publicadas. O repertório de Serenata vem de um especial em vídeo que Oswaldo lançou no YouTube em junho.</p>
+  <h3>Parece com</h3><p>MPB de voz e violão, com cara de serenata: canções românticas e arranjos acústicos enxutos.</p>
+  <h3>Por que ouvir</h3><p>Você segue Oswaldo Montenegro; é o disco nacional mais íntimo da semana, bom para ouvir com calma.</p>
+  <h3>Críticas</h3><p>Ainda sem críticas publicadas.</p>
+  <p class="src">Fontes: <a href="https://open.spotify.com/album/68kN4YUkwWlFTh9HjfOnt8" target="_blank" rel="noopener">Spotify</a></p>
+  <a class="spot" href="https://open.spotify.com/album/68kN4YUkwWlFTh9HjfOnt8" target="_blank" rel="noopener">▶ Ouvir no Spotify</a>
+ </div>
+</article>
+<article class="card" id="a4">
+ <div class="top"><img src="https://i.scdn.co/image/ab67616d0000b27392dac5b7002b6da9ba53159c" alt="Capa de Gentling the Horse at the Walt Whitman Mall" loading="lazy" width="640" height="640"><span class="num">4</span></div>
+ <div class="body">
+  <div class="badges"><span class="b int">🌍 Internacional</span><span class="b desc">Descoberta</span></div>
+  <h2>Gentling the Horse at the Walt Whitman Mall</h2>
+  <p class="artist">Caroline Rose <span class="date">· 23 out 2026</span></p>
+  <h3>O que a crítica diz</h3><p>O musicOMH dá 5/5 e chama o disco de obra-prima mutante; a Glide destaca como Caroline Rose foge do previsível, indo do folk ao pop teatral; a Altrevue elogia a escrita conceitual e bem-humorada.</p>
+  <h3>Parece com</h3><p>Art-pop e indie rock que mudam de forma o tempo todo, entre St. Vincent, Father John Misty e Weyes Blood.</p>
+  <h3>Por que ouvir</h3><p>Pop experimental e cheio de reviravoltas, como o Vanishing Twin (7) e o Eels (7,3) que você avaliou bem.</p>
+  <h3>Críticas</h3><ul class="crit"><li><a href="https://www.musicomh.com/reviews/albums/caroline-rose-gentling-the-horse-at-the-walt-whitman-mall" target="_blank" rel="noopener">musicOMH</a> <span class="nota">5/5</span></li><li><a href="https://glidemagazine.com/331915/caroline-rose-defies-expectations-with-shape-shifting-gentling-the-horse-at-the-walt-whitman-mall-album-review/" target="_blank" rel="noopener">Glide Magazine</a></li><li><a href="https://www.altrevue.com/post/album-review-caroline-rose-gentling-the-horse-at-the-walt-whitman-mall" target="_blank" rel="noopener">Altrevue</a></li></ul>
+  <p class="src">Fontes: <a href="https://www.musicomh.com/reviews/albums/caroline-rose-gentling-the-horse-at-the-walt-whitman-mall" target="_blank" rel="noopener">musicOMH</a> · <a href="https://glidemagazine.com/331915/caroline-rose-defies-expectations-with-shape-shifting-gentling-the-horse-at-the-walt-whitman-mall-album-review/" target="_blank" rel="noopener">Glide Magazine</a> · <a href="https://www.altrevue.com/post/album-review-caroline-rose-gentling-the-horse-at-the-walt-whitman-mall" target="_blank" rel="noopener">Altrevue</a> · <a href="https://open.spotify.com/album/5vTXXPuNbjStVeQP2jkfGG" target="_blank" rel="noopener">Spotify</a></p>
+  <a class="spot" href="https://open.spotify.com/album/5vTXXPuNbjStVeQP2jkfGG" target="_blank" rel="noopener">▶ Ouvir no Spotify</a>
+ </div>
+</article>
+<article class="card" id="a5">
+ <div class="top"><img src="https://i.scdn.co/image/ab67616d0000b2736fd7ed3c56b3aca34fdc4285" alt="Capa de Dez Vidas" loading="lazy" width="640" height="640"><span class="num">5</span></div>
+ <div class="body">
+  <div class="badges"><span class="b nac">🇧🇷 Nacional</span><span class="b desc">Descoberta</span></div>
+  <h2>Dez Vidas</h2>
+  <p class="artist">Tuyo <span class="date">· 22 out 2026</span></p>
+  <h3>O que a crítica diz</h3><p>Ainda sem críticas publicadas. Segundo o G1 (Mauro Ferreira), Dez Vidas revisita a década do trio em regravações, traz uma música inédita (“Não Importa”) e participações de Jota.pê e Cupertino.</p>
+  <h3>Parece com</h3><p>Pop alternativo de vozes em harmonia e sintetizadores delicados, folk eletrônico com sotaque brasileiro.</p>
+  <h3>Por que ouvir</h3><p>Mistura de synth-pop e intimidade que fica entre a Rachel Chinouriri (8,7) e as texturas do Vanishing Twin (7), em português.</p>
+  <h3>Críticas</h3><p>Ainda sem críticas publicadas.</p><p class="src">Notícias (não são críticas): <a href="https://g1.globo.com/pop-arte/musica/blog/mauro-ferreira/post/2026/10/22/tuyo-revisa-uma-decada-no-album-dez-vidas-entre-regravacoes-uma-musica-inedita-e-feats-com-cupertino-e-jotape.ghtml" target="_blank" rel="noopener">G1 · Mauro Ferreira</a></p>
+  <p class="src">Fontes: <a href="https://g1.globo.com/pop-arte/musica/blog/mauro-ferreira/post/2026/10/22/tuyo-revisa-uma-decada-no-album-dez-vidas-entre-regravacoes-uma-musica-inedita-e-feats-com-cupertino-e-jotape.ghtml" target="_blank" rel="noopener">G1 · Mauro Ferreira</a> · <a href="https://open.spotify.com/album/6d4sMgo6fDkPxnDPuj2fX5" target="_blank" rel="noopener">Spotify</a></p>
+  <a class="spot" href="https://open.spotify.com/album/6d4sMgo6fDkPxnDPuj2fX5" target="_blank" rel="noopener">▶ Ouvir no Spotify</a>
+ </div>
+</article>
+<article class="card" id="a6">
+ <div class="top"><img src="https://i.scdn.co/image/ab67616d0000b273358a0d746d5bf193b2ad6386" alt="Capa de The Midnight Hour: Lost Tapes JID028" loading="lazy" width="640" height="640"><span class="num">6</span></div>
+ <div class="body">
+  <div class="badges"><span class="b int">🌍 Internacional</span><span class="b acc">Você acompanha</span></div>
+  <h2>The Midnight Hour: Lost Tapes JID028</h2>
+  <p class="artist">Adrian Younge, Ali Shaheed Muhammad <span class="date">· 23 out 2026</span></p>
+  <h3>O que a crítica diz</h3><p>Ainda sem críticas publicadas. São nove faixas de sessões de 2020 que tinham ficado na gaveta do projeto The Midnight Hour, lançadas pelo selo Jazz Is Dead.</p>
+  <h3>Parece com</h3><p>Soul orquestral cinematográfico com jazz e batida de hip hop, na linha de Isaac Hayes e David Axelrod.</p>
+  <h3>Por que ouvir</h3><p>Você ouve bastante Younge e Ali Shaheed; cordas e clima de trilha sonora conversam com seu gosto por Max Richter (9).</p>
+  <h3>Críticas</h3><p>Ainda sem críticas publicadas.</p>
+  <p class="src">Fontes: <a href="https://open.spotify.com/album/3DNuP6vsyP1KPlkeAczCb8" target="_blank" rel="noopener">Spotify</a></p>
+  <a class="spot" href="https://open.spotify.com/album/3DNuP6vsyP1KPlkeAczCb8" target="_blank" rel="noopener">▶ Ouvir no Spotify</a>
+ </div>
+</article>
+<article class="card" id="a7">
+ <div class="top"><img src="https://i.scdn.co/image/ab67616d0000b273c52bab2d5ca6fa8e258d1ae0" alt="Capa de Passing the Cup of Sorrows" loading="lazy" width="640" height="640"><span class="num">7</span></div>
+ <div class="body">
+  <div class="badges"><span class="b int">🌍 Internacional</span><span class="b desc">Descoberta</span></div>
+  <h2>Passing the Cup of Sorrows</h2>
+  <p class="artist">William Basinski <span class="date">· 23 out 2026</span></p>
+  <h3>O que a crítica diz</h3><p>Ainda sem críticas publicadas. Segundo o selo, é uma peça longa de piano solo com eletrônica sutil, mais limpa e direta que os loops de fita de Basinski.</p>
+  <h3>Parece com</h3><p>Piano minimalista em decomposição lenta, entre Morton Feldman, Harold Budd e as Disintegration Loops.</p>
+  <h3>Por que ouvir</h3><p>Neoclássico ambiental para quem deu 9 a While The Flood Rages, de Max Richter: é a descoberta mais certeira da semana.</p>
+  <h3>Críticas</h3><p>Ainda sem críticas publicadas.</p>
+  <p class="src">Fontes: <a href="https://open.spotify.com/album/6KuXDpGHxQIYtLclM2Nihz" target="_blank" rel="noopener">Spotify</a></p>
+  <a class="spot" href="https://open.spotify.com/album/6KuXDpGHxQIYtLclM2Nihz" target="_blank" rel="noopener">▶ Ouvir no Spotify</a>
+ </div>
+</article>
+<article class="card" id="a8">
+ <div class="top"><img src="https://i.scdn.co/image/ab67616d0000b273b0a97f25e00db4287bdf8da4" alt="Capa de Meninos de Roça (Ao Vivo)" loading="lazy" width="640" height="640"><span class="num">8</span></div>
+ <div class="body">
+  <div class="badges"><span class="b nac">🇧🇷 Nacional</span><span class="b acc">Você acompanha</span></div>
+  <h2>Meninos de Roça (Ao Vivo)</h2>
+  <p class="artist">Chitãozinho &amp; Xororó <span class="date">· 23 out 2026</span></p>
+  <h3>O que a crítica diz</h3><p>Ainda sem críticas publicadas. É a versão completa do projeto ao vivo Meninos de Roça, que já tinha saído em volumes desde julho.</p>
+  <h3>Parece com</h3><p>Sertanejo de raiz e modão ao vivo, com viola e as vozes em dueto da dupla.</p>
+  <h3>Por que ouvir</h3><p>Você segue a dupla; é o lado mais tradicional da cota nacional, para variar o clima da semana.</p>
+  <h3>Críticas</h3><p>Ainda sem críticas publicadas.</p>
+  <p class="src">Fontes: <a href="https://open.spotify.com/album/7oJIoDqO1rdxVpz2myE36G" target="_blank" rel="noopener">Spotify</a></p>
+  <a class="spot" href="https://open.spotify.com/album/7oJIoDqO1rdxVpz2myE36G" target="_blank" rel="noopener">▶ Ouvir no Spotify</a>
+ </div>
+</article>
+<article class="card" id="a9">
+ <div class="top"><img src="https://i.scdn.co/image/ab67616d0000b2739d90986196d15b366f05a844" alt="Capa de The Same Place" loading="lazy" width="640" height="640"><span class="num">9</span></div>
+ <div class="body">
+  <div class="badges"><span class="b int">🌍 Internacional</span><span class="b desc">Descoberta</span></div>
+  <h2>The Same Place</h2>
+  <p class="artist">The Olivia Tremor Control <span class="date">· 23 out 2026</span></p>
+  <h3>O que a crítica diz</h3><p>A Big Takeover celebra a volta do coletivo Elephant 6 com um disco extenso e psicodélico; o That Love Podcast trata o álbum como um belo retorno final, cheio de colagens sonoras e melodias à la Beatles.</p>
+  <h3>Parece com</h3><p>Psicodelia pop lo-fi com colagens, harmonias sessentistas e experimentação, perto de Neutral Milk Hotel e Apples in Stereo.</p>
+  <h3>Por que ouvir</h3><p>O neo-psicodelismo e o pop experimental são exatamente o território do Vanishing Twin (7) que você avaliou.</p>
+  <h3>Críticas</h3><ul class="crit"><li><a href="https://bigtakeover.com/recordings/the-olivia-tremor-control-the-same-place-elephant-6-recording-company" target="_blank" rel="noopener">The Big Takeover</a></li><li><a href="https://www.thatlovepodcast.com/post/olivia-tremor-control-the-same-place-review" target="_blank" rel="noopener">That Love Podcast</a></li></ul>
+  <p class="src">Fontes: <a href="https://bigtakeover.com/recordings/the-olivia-tremor-control-the-same-place-elephant-6-recording-company" target="_blank" rel="noopener">The Big Takeover</a> · <a href="https://www.thatlovepodcast.com/post/olivia-tremor-control-the-same-place-review" target="_blank" rel="noopener">That Love Podcast</a> · <a href="https://open.spotify.com/album/22Qa4J7PkfP23xfqx4QBat" target="_blank" rel="noopener">Spotify</a></p>
+  <a class="spot" href="https://open.spotify.com/album/22Qa4J7PkfP23xfqx4QBat" target="_blank" rel="noopener">▶ Ouvir no Spotify</a>
+ </div>
+</article>
+<article class="card" id="a10">
+ <div class="top"><img src="https://i.scdn.co/image/ab67616d0000b27325e05bc6661ce24e015b9e38" alt="Capa de Win Win" loading="lazy" width="640" height="640"><span class="num">10</span></div>
+ <div class="body">
+  <div class="badges"><span class="b int">🌍 Internacional</span><span class="b desc">Descoberta</span></div>
+  <h2>Win Win</h2>
+  <p class="artist">Fenne Lily <span class="date">· 23 out 2026</span></p>
+  <h3>O que a crítica diz</h3><p>A FLOOD e o Sounds &amp; Books elogiam a escrita afiada e calorosa de Fenne Lily; a Rolling Stone alemã acha o disco confortável demais, preso em andamentos médios.</p>
+  <h3>Parece com</h3><p>Indie folk e indie rock suaves, entre Phoebe Bridgers, Lucy Dacus e Big Thief.</p>
+  <h3>Por que ouvir</h3><p>Indie de compositora com melodia em primeiro plano, primo mais acústico da Rachel Chinouriri (8,7).</p>
+  <h3>Críticas</h3><ul class="crit"><li><a href="https://floodmagazine.com/235511/fenne-lily-win-win/" target="_blank" rel="noopener">FLOOD</a></li><li><a href="https://www.rollingstone.de/reviews/fenne-lily-win-win-review/" target="_blank" rel="noopener">Rolling Stone (Alemanha)</a></li><li><a href="https://www.soundsandbooks.com/fenne-lily-win-win-albumreview/" target="_blank" rel="noopener">Sounds &amp; Books</a></li></ul>
+  <p class="src">Fontes: <a href="https://floodmagazine.com/235511/fenne-lily-win-win/" target="_blank" rel="noopener">FLOOD</a> · <a href="https://www.rollingstone.de/reviews/fenne-lily-win-win-review/" target="_blank" rel="noopener">Rolling Stone (Alemanha)</a> · <a href="https://www.soundsandbooks.com/fenne-lily-win-win-albumreview/" target="_blank" rel="noopener">Sounds &amp; Books</a> · <a href="https://open.spotify.com/album/1m7TJkQQIOxx7gfkvaKt6f" target="_blank" rel="noopener">Spotify</a></p>
+  <a class="spot" href="https://open.spotify.com/album/1m7TJkQQIOxx7gfkvaKt6f" target="_blank" rel="noopener">▶ Ouvir no Spotify</a>
+ </div>
+</article>
+<article class="card" id="a11">
+ <div class="top"><img src="https://i.scdn.co/image/ab67616d0000b273fee1e84dd7f06bbd45c16f3b" alt="Capa de Cereja de Xuxu" loading="lazy" width="640" height="640"><span class="num">11</span></div>
+ <div class="body">
+  <div class="badges"><span class="b nac">🇧🇷 Nacional</span><span class="b desc">Descoberta</span></div>
+  <h2>Cereja de Xuxu</h2>
+  <p class="artist">catïça <span class="date">· 23 out 2026</span></p>
+  <h3>O que a crítica diz</h3><p>Ainda sem críticas publicadas. A banda de Londrina lança pela Deck um disco que mistura punk, hardcore e metal.</p>
+  <h3>Parece com</h3><p>Punk/hardcore pesado e direto, com guitarras metálicas e vocal gritado.</p>
+  <h3>Por que ouvir</h3><p>Uma aposta fora da curva: é a descoberta nacional mais barulhenta, para testar se você topa algo mais pesado.</p>
+  <h3>Críticas</h3><p>Ainda sem críticas publicadas.</p>
+  <p class="src">Fontes: <a href="https://open.spotify.com/album/6t4FCAFfM4fTcyQsXQgr4n" target="_blank" rel="noopener">Spotify</a></p>
+  <a class="spot" href="https://open.spotify.com/album/6t4FCAFfM4fTcyQsXQgr4n" target="_blank" rel="noopener">▶ Ouvir no Spotify</a>
+ </div>
+</article>
+<article class="card" id="a12">
+ <div class="top"><img src="https://i.scdn.co/image/ab67616d0000b273c3c4fba8a4034c5e4ff57ba2" alt="Capa de BLUE" loading="lazy" width="640" height="640"><span class="num">12</span></div>
+ <div class="body">
+  <div class="badges"><span class="b int">🌍 Internacional</span><span class="b acc">Você acompanha</span></div>
+  <h2>BLUE</h2>
+  <p class="artist">girl in red <span class="date">· 23 out 2026</span></p>
+  <h3>O que a crítica diz</h3><p>Ainda sem críticas publicadas. EP de quatro faixas que inclui o single “blue”, lançado no começo de outubro.</p>
+  <h3>Parece com</h3><p>Indie pop de quarto com guitarras e refrões melancólicos.</p>
+  <h3>Por que ouvir</h3><p>Você já ouviu girl in red; são 4 faixas curtas de synth/indie pop, perto do que te agradou em Rachel Chinouriri (8,7).</p>
+  <h3>Críticas</h3><p>Ainda sem críticas publicadas.</p>
+  <p class="src">Fontes: <a href="https://open.spotify.com/album/5mutH6AczN5onZ1binwkvO" target="_blank" rel="noopener">Spotify</a></p>
+  <a class="spot" href="https://open.spotify.com/album/5mutH6AczN5onZ1binwkvO" target="_blank" rel="noopener">▶ Ouvir no Spotify</a>
+ </div>
+</article>
+</main>
+<footer>Críticas resumidas e parafraseadas das fontes citadas em cada card. Datas conforme o Spotify (mercado BR).</footer>
+</body></html>
