@@ -83,6 +83,7 @@ def edition_meta(f, s):
         kind, label = 'mensal', 'Mensal'
     else:
         kind, label = 'especial', 'Especial'
+    group = 'semanal' if kind == 'semanal' else 'especial'  # aba Edições: semanais x especiais
     # data de referência: data no nome do arquivo > fim do período no subtítulo > fim do mês/ano
     d = None
     m = re.search(r'(20\d\d)-(\d\d)-(\d\d)', base)
@@ -99,7 +100,7 @@ def edition_meta(f, s):
         mes = next((v for k, v in MESES.items() if k in base), 12)
         nxt = date(int(fy) + (mes == 12), mes % 12 + 1, 1)
         d = date.fromordinal(nxt.toordinal() - 1)
-    return dict(file=f, title=title, kind=kind, label=label, date=d.isoformat(), subtitle=sub,
+    return dict(file=f, title=title, kind=kind, group=group, label=label, date=d.isoformat(), subtitle=sub,
                 playlist=html.unescape(first(r'<a class="pl" href="([^"]+)"', s)))
 
 

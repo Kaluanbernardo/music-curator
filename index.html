@@ -32,6 +32,7 @@ header.top .grow{flex:1;min-width:0}
 .tabs button[aria-selected=true]{background:var(--card2);color:var(--fg);box-shadow:inset 0 -2px 0 var(--acc)}
 .tabs small{font-weight:600;color:var(--mut)}
 /* edições */
+.edh{font-size:1.05rem;margin:18px 2px 4px;color:var(--fg)}.edh small{color:var(--mut);font-weight:600}
 .ed{display:flex;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px;margin:10px 0;text-decoration:none}
 .ed:active{transform:scale(.99)}
 .mos{width:84px;height:84px;flex:none;display:grid;grid-template-columns:1fr 1fr;border-radius:12px;overflow:hidden;background:#000}
@@ -162,14 +163,18 @@ $('#t-discos').onclick=()=>{if(tab!=='discos'){showTab('discos',true);scrollTo(0
 
 /* ---------- edições ---------- */
 function renderEditions(){
-  $('#edicoes').innerHTML=D.editions.map((e,i)=>{
+  const card=(e,i)=>{
     const cs=(e.covers||[]).slice(0,4),mos=cs.length>=4?cs:cs.slice(0,1);
     const pic=mos.length?`<span class="mos${mos.length===1?' one':''}" aria-hidden="true">${mos.map(c=>`<img src="${esc(c)}" alt="" loading="lazy" decoding="async">`).join('')}</span>`:`<span class="mos one cv" aria-hidden="true">♪</span>`;
     return `<a class="ed" href="${esc(e.file)}">${pic}<span class="info"><b>${esc(e.title)}${i===0?'<span class="new">NOVA</span>':''}</b>`+
       `<span class="meta"><span class="kind">${esc(e.label||e.kind)}</span> · ${esc(fmt(e.date))} · ${e.count} discos</span>`+
       `<span class="meta">🇧🇷 ${e.nac} nacionais · ${e.known} você acompanha</span>`+
       (e.subtitle?`<span class="sub">${esc(e.subtitle.replace(/^Music Curator · /,''))}</span>`:'')+`</span></a>`;
-  }).join('')||'<p class="empty">Nenhuma edição ainda.</p>';
+  };
+  const isW=e=>(e.group||(e.kind==='semanal'?'semanal':'especial'))==='semanal';
+  const sec=(t,id,l)=>l.length?`<h2 class="edh" id="${id}">${t} <small>${l.length}</small></h2>`+l.map(e=>card(e,e._i)).join(''):'';
+  const w=D.editions.filter(isW),sp=D.editions.filter(e=>!isW(e));
+  $('#edicoes').innerHTML=(sec('Edições semanais','ed-semanais',w)+sec('Edições especiais','ed-especiais',sp))||'<p class="empty">Nenhuma edição ainda.</p>';
 }
 
 /* ---------- filtros ---------- */

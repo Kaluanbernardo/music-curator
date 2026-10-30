@@ -1,6 +1,6 @@
 // Service worker do Music Curator. O bloco entre os marcadores é gerado por tools/build_hub.py.
 // <hub:gen>
-const VERSION='ac65e0b686';
+const VERSION='f9c1ffa100';
 const SHELL=["./", "index.html", "albums.json", "manifest.webmanifest", "icon-192.png", "icon-512.png", "icon-maskable-192.png", "icon-maskable-512.png", "apple-touch-icon.png"];
 const PAGES=["semana-2026-10-30.html", "50-do-ano-2026.html", "semana-2026-10-23.html", "outubro-2026.html"];
 // </hub:gen>
