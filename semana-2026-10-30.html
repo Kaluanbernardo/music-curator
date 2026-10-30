@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Discos da semana · 30 out 2026 · Music Curator</title>
+<meta name="theme-color" content="#14121a">
+<style>
+:root{--bg:#14121a;--card:#1e1b27;--fg:#f2eff7;--mut:#a9a3b8;--acc:#1ed760;--line:#2e2a3a}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;padding:env(safe-area-inset-top) 0 40px}
+header{padding:28px 18px 8px;max-width:760px;margin:0 auto}
+header h1{font-size:1.7rem;line-height:1.2;margin:0 0 6px;letter-spacing:-.02em}
+header p{color:var(--mut);margin:4px 0}
+.note{background:#2a2438;border:1px solid #3d3552;border-radius:12px;padding:12px 14px;margin:14px 0 4px;color:var(--fg)}
+.stats{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.stats span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:.82rem;color:var(--mut)}
+main{max-width:760px;margin:0 auto;padding:8px 12px;display:grid;gap:18px}
+@media(min-width:900px){main{max-width:1100px;grid-template-columns:1fr 1fr}header{max-width:1100px}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.top{position:relative}.top img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;background:#000}
+.num{position:absolute;top:10px;left:10px;background:rgba(0,0,0,.72);color:#fff;font-weight:800;border-radius:10px;padding:2px 10px;font-size:1.1rem}
+.body{padding:14px 16px 18px}
+.badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.b{font-size:.74rem;font-weight:700;padding:3px 9px;border-radius:999px;letter-spacing:.01em}
+.nac{background:#0f3d24;color:#7ef0a8}.int{background:#1f2c48;color:#9cc0ff}
+.acc{background:#3a2a10;color:#ffcf73}.desc{background:#3b1834;color:#ff9ad8}
+h2{font-size:1.3rem;line-height:1.25;margin:2px 0}
+.artist{margin:0 0 6px;font-weight:600}.date{color:var(--mut);font-weight:400}
+h3{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin:14px 0 2px}
+.body p{margin:0}.body p.desc{margin-bottom:8px}
+.genres{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 8px}.g{font-size:.74rem;padding:2px 9px;border-radius:999px;border:1px solid var(--line);color:var(--mut)}
+.nocover{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;font-size:1.4rem;font-weight:800;background:linear-gradient(135deg,#2a2438,#14121a);color:var(--mut)}
+.src{margin-top:12px!important;font-size:.85rem;color:var(--mut)}.src a{color:#c9b8ff}
+.spot{display:block;text-align:center;margin-top:14px;background:var(--acc);color:#04120a;font-weight:800;text-decoration:none;padding:12px;border-radius:12px}
+.vote{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.v{font:inherit;font-weight:700;border-radius:12px;padding:12px 4px;border:1px solid var(--line);background:#26222f;color:var(--fg);cursor:pointer;min-height:48px}
+.v:active{transform:scale(.97)}.up:hover{border-color:#1ed760}.mid:hover{border-color:#ffcf73}.down:hover{border-color:#ff6b6b}
+.crit{list-style:none;padding:0;margin:4px 0 0;display:flex;flex-wrap:wrap;gap:8px}.crit a{display:inline-block;background:#26222f;border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:#c9b8ff;text-decoration:none;font-weight:600}.nota{color:var(--fg);font-weight:700}
+.pl{display:block;text-align:center;margin:12px 0 4px;background:var(--acc);color:#04120a;font-weight:800;text-decoration:none;padding:12px;border-radius:12px}
+.codes{margin-top:8px!important;font-size:.82rem;color:var(--mut);text-align:center}
+code{background:#0e0c13;border:1px solid var(--line);border-radius:6px;padding:1px 6px;color:var(--fg);user-select:all;-webkit-user-select:all}
+.ok{display:block;text-align:center;font-size:.85rem;color:#7ef0a8;margin-top:6px;min-height:1.2em}
+#toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(120%);background:#f2eff7;color:#14121a;font-weight:700;padding:10px 16px;border-radius:999px;box-shadow:0 6px 24px rgba(0,0,0,.4);transition:transform .25s;z-index:9;max-width:92vw;text-align:center}
+#toast.show{transform:translateX(-50%) translateY(0)}
+footer{max-width:760px;margin:24px auto 0;padding:0 18px;color:var(--mut);font-size:.82rem}
+</style></head><body>
+<header>
+ <h1>Discos da semana · 30 out 2026</h1>
+ <p>Music Curator · edição semanal · lançamentos de 24 a 30 de outubro de 2026</p>
+ <a class="pl" href="https://open.spotify.com/playlist/7gVph0FEZhGk9VJyV6fcN8" target="_blank" rel="noopener">▶ Ouvir tudo na playlist Week44 - Outubro - 2026</a>
+ <div class="note">Como suas notas pesaram: o 9 de Max Richter puxou o órgão de Kali Malone e a eletrônica lenta de Andy Stott; o 9 recém-dado a Caroline Rose e o 8,7 de Rachel Chinouriri abriram espaço para o indie pop de Ex:Re, The Big Moon e o DIIV produzido por A.G. Cook; Vanishing Twin (7) e Eels (7,3) mantiveram o lado mais estranho, com PISS e Sampa the Great.</div>
+ <div class="stats"><span>16 discos</span><span>3 você acompanha</span><span>0 do seu histórico</span><span>13 descobertas</span><span>5 nacionais (31%)</span></div>
+</header>
+<main>
+<article class="card" id="a1">
+ <div class="top"><img src="https://i.scdn.co/image/ab67616d0000b2734d957fefd8e7b61b9fcfc374" alt="Capa de Perfecth" loading="lazy" width="640" height="640"><span class="num">1</span></div>
+ <div class="body">
+  <div class="badges"><span class="b int">🌍 Internacional</span><span class="b acc">Você acompanha</span></div>
+  <div class="genres"><span class="g">Rock alternativo</span><span class="g">Art rock</span><span class="g">Stoner rock</span></div>
+  <h2>Perfecth</h2>
+  <p class="artist">Queens of the Stone Age <span class="date">· 30 out 2026</span></p>
+  <h3>Sobre o disco</h3><p>O nono disco do Queens of the Stone Age chega sem o peso de muro de guitarras que virou marca da banda de Josh Homme: Perfecth é mais contido, com violões, arranjos art rock e espaço para a voz. Rolling Stone, NME e musicOMH receberam bem a virada, vendo nela uma banda à vontade para desacelerar sem perder o veneno; no agregado do Album of the Year a média gira perto de 79.</p>
+  <h3>Parece com</h3><p>Era Villains e …Like Clockwork, mas na versão mais desplugada; flerta com o lado mais sombrio de Mark Lanegan.</p>
+  <h3>Por que ouvir</h3><p>Você já acompanha a banda, e é o QOTSA mais diferente em anos.</p>
+  <h3>Críticas</h3><ul class="crit"><li><a href="https://www.rollingstone.com/music/music-album-reviews/queens-of-the-stone-age-perfecth-review-1235637835/" target="_blank" rel="noopener">Rolling Stone</a></li><li><a href="https://www.nme.com/reviews/album/queens-of-the-stone-age-perfecth-album-review-3974374" target="_blank" rel="noopener">NME</a></li><li><a href="https://www.musicomh.com/reviews/albums/queens-of-the-stone-age-perfecth" target="_blank" rel="noopener">musicOMH</a></li></ul>
+  <p class="src">Fontes: <a href="https://www.rollingstone.com/music/music-album-reviews/queens-of-the-stone-age-perfecth-review-1235637835/" target="_blank" rel="noopener">Rolling Stone</a> · <a href="https://www.nme.com/reviews/album/queens-of-the-stone-age-perfecth-album-review-3974374" target="_blank" rel="noopener">NME</a> · <a href="https://www.musicomh.com/reviews/albums/queens-of-the-stone-age-perfecth" target="_blank" rel="noopener">musicOMH</a> · <a href="https://open.spotify.com/album/4GUyvsWXjynz867s6Lww2p" target="_blank" rel="noopener">Spotify</a></p>
+  <a class="spot" href="https://open.spotify.com/album/4GUyvsWXjynz867s6Lww2p" target="_blank" rel="noopener">▶ Ouvir no Spotify</a>
+ </div>
+</article>
+<article class="card" id="a2">
+ <div class="top"><img src="https://i.scdn.co/image/ab67616d0000b273d72a0f58da7849a2060bedd5" alt="Capa de Never Too Soon" loading="lazy" width="640" height="640"><span class="num">2</span></div>
+ <div class="body">
+  <div class="badges"><span class="b nac">🇧🇷 Nacional</span><span class="b desc">Descoberta</span></div>
+  <div class="genres"><span class="g">MPB</span><span class="g">Bossa nova</span><span class="g">Jazz brasileiro</span></div>
+  <h2>Never Too Soon</h2>
+  <p class="artist">Joyce Moreno <span class="date">· 30 out 2026</span></p>
+  <h3>Sobre o disco</h3><p>Joyce Moreno volta pelo selo inglês Far Out Recordings com Never Too Soon, disco que presta homenagem a Toninho Horta e inclui duas canções em inglês. Para Mauro Ferreira, no G1, que deu quatro estrelas, Joyce doma o ritmo da sua &quot;hard bossa&quot;, o violão percussivo e veloz que virou assinatura dela, num álbum de músicos afiados e frescor de quem ainda tem o que dizer depois de mais de cinco décadas de carreira.</p>
+  <h3>Parece com</h3><p>Bossa e MPB de violão percussivo, na linhagem de Toninho Horta, Marcos Valle e Clube da Esquina.</p>
+  <h3>Por que ouvir</h3><p>Uma das grandes vozes da MPB em forma, com a sonoridade que a Far Out ajudou a levar para fora do Brasil.</p>
+  <h3>Críticas</h3><ul class="crit"><li><a href="https://g1.globo.com/pop-arte/musica/blog/mauro-ferreira/post/2026/10/28/joyce-moreno-doma-o-ritmo-da-hard-bossa-no-album-never-too-soon.ghtml" target="_blank" rel="noopener">G1 (Mauro Ferreira)</a> <span class="nota">★★★★</span></li></ul>
+  <p class="src">Fontes: <a href="https://g1.globo.com/pop-arte/musica/blog/mauro-ferreira/post/2026/10/28/joyce-moreno-doma-o-ritmo-da-hard-bossa-no-album-never-too-soon.ghtml" target="_blank" rel="noopener">G1 (Mauro Ferreira)</a> · <a href="https://open.spotify.com/album/7M2ejpwYLTDP204rVnMFp1" target="_blank" rel="noopener">Spotify</a></p>
+  <a class="spot" href="https://open.spotify.com/album/7M2ejpwYLTDP204rVnMFp1" target="_blank" rel="noopener">▶ Ouvir no Spotify</a>
+ </div>
+</article>
+<article class="card" id="a3">
+ <div class="top"><img src="https://i.scdn.co/image/ab67616d0000b273dc59cc903e7cb5f74cd60302" alt="Capa de ZIRP!" loading="lazy" width="640" height="640"><span class="num">3</span></div>
+ <div class="body">
+  <div class="badges"><span class="b int">🌍 Internacional</span><span class="b acc">Você acompanha</span></div>
+  <div class="genres"><span class="g">Shoegaze</span><span class="g">Indie rock</span><span class="g">Dream pop</span></div>
+  <h2>ZIRP!</h2>
+  <p class="artist">DIIV <span class="date">· 30 out 2026</span></p>
+  <h3>Sobre o disco</h3><p>ZIRP! tem produção de A.G. Cook e é o disco mais político do DIIV, com um recado declaradamente anticapitalista (o título vem da sigla da era de juros zero). O Stereogum fez dele o álbum da semana e o chamou de melhor trabalho da banda; a NME fala em pop encontrando política no disco mais aventureiro deles, e o Pitchfork também resenhou. A Line of Best Fit foi mais dividida.</p>
+  <h3>Parece com</h3><p>O shoegaze de Frog in Boiling Water com brilho pop de PC Music; entre Slowdive e Nothing.</p>
+  <h3>Por que ouvir</h3><p>Você já ouviu bastante DIIV, e a crítica diz que é o melhor deles.</p>
+  <h3>Críticas</h3><ul class="crit"><li><a href="https://stereogum.com/2515261/album-of-the-week-diiv-zirp/reviews/album-of-the-week" target="_blank" rel="noopener">Stereogum (Album of the Week)</a></li><li><a href="https://pitchfork.com/reviews/albums/diiv-zirp/" target="_blank" rel="noopener">Pitchfork</a></li><li><a href="https://www.nme.com/reviews/album/diiv-zirp-review-3974219" target="_blank" rel="noopener">NME</a></li></ul>
+  <p class="src">Fontes: <a href="https://stereogum.com/2515261/album-of-the-week-diiv-zirp/reviews/album-of-the-week" target="_blank" rel="noopener">Stereogum (Album of the Week)</a> · <a href="https://pitchfork.com/reviews/albums/diiv-zirp/" target="_blank" rel="noopener">Pitchfork</a> · <a href="https://www.nme.com/reviews/album/diiv-zirp-review-3974219" target="_blank" rel="noopener">NME</a> · <a href="https://open.spotify.com/album/3HaXEC1Zfo0zM6OCqdpofT" target="_blank" rel="noopener">Spotify</a></p>
+  <a class="spot" href="https://open.spotify.com/album/3HaXEC1Zfo0zM6OCqdpofT" target="_blank" rel="noopener">▶ Ouvir no Spotify</a>
+ </div>
+</article>
+<article class="card" id="a4">
+ <div class="top"><img src="https://i.scdn.co/image/ab67616d0000b27369d09cd04146988362ee3caf" alt="Capa de Recibo de Violeiro" loading="lazy" width="640" height="640"><span class="num">4</span></div>
+ <div class="body">
+  <div class="badges"><span class="b nac">🇧🇷 Nacional</span><span class="b desc">Descoberta</span></div>
+  <div class="genres"><span class="g">Música caipira</span><span class="g">MPB</span><span class="g">Folk brasileiro</span></div>
+  <h2>Recibo de Violeiro</h2>
+  <p class="artist">Chico Lobo <span class="date">· 30 out 2026</span></p>
+  <h3>Sobre o disco</h3><p>Trigésimo sexto álbum do violeiro mineiro Chico Lobo, Recibo de Violeiro tem participações de Fernanda Takai, John Ulhoa, Humberto Gessinger, Zeca Baleiro, Leila Pinheiro e Jane Duboc. No G1, Mauro Ferreira descreve um disco que mapeia o Brasil rural com toadas, folia, batuque, moda de viola e até rock, com a viola caipira no centro de tudo.</p>
+  <h3>Parece com</h3><p>Viola caipira com pontes para o pop-rock, perto de Almir Sater, Renato Teixeira e Pato Fu.</p>
+  <h3>Por que ouvir</h3><p>Um panorama da música rural brasileira com convidados que você conhece do rock e da MPB.</p>
+  <h3>Críticas</h3><ul class="crit"><li><a href="https://g1.globo.com/pop-arte/musica/blog/mauro-ferreira/post/2026/10/28/chico-lobo-da-recibo-de-violeiro-em-album-que-mapeia-o-brasil-rural-com-toadas-folia-batuque-moda-e-ate-rock.ghtml" target="_blank" rel="noopener">G1 (Mauro Ferreira)</a></li></ul>
+  <p class="src">Fontes: <a href="https://g1.globo.com/pop-arte/musica/blog/mauro-ferreira/post/2026/10/28/chico-lobo-da-recibo-de-violeiro-em-album-que-mapeia-o-brasil-rural-com-toadas-folia-batuque-moda-e-ate-rock.ghtml" target="_blank" rel="noopener">G1 (Mauro Ferreira)</a> · <a href="https://open.spotify.com/album/6Gx1nj9q8pvhPjNkAmhKVt" target="_blank" rel="noopener">Spotify</a></p>
+  <a class="spot" href="https://open.spotify.com/album/6Gx1nj9q8pvhPjNkAmhKVt" target="_blank" rel="noopener">▶ Ouvir no Spotify</a>
+ </div>
+</article>
+<article class="card" id="a5">
+ <div class="top"><img src="https://i.scdn.co/image/ab67616d0000b27364dd93c7a3c89fa6dac3f7f6" alt="Capa de you made me / skin on linen" loading="lazy" width="640" height="640"><span class="num">5</span></div>
+ <div class="body">
+  <div class="badges"><span class="b int">🌍 Internacional</span><span class="b desc">Descoberta</span></div>
+  <div class="genres"><span class="g">Noise rock</span><span class="g">Post-hardcore</span><span class="g">Spoken word</span></div>
+  <h2>you made me / skin on linen</h2>
+  <p class="artist">PISS <span class="date">· 30 out 2026</span></p>
+  <h3>Sobre o disco</h3><p>you made me / skin on linen é um disco duplo de noise rock com trechos falados que encara de frente a cultura da violência sexual. O Kerrang! deu 4/5; a Line of Best Fit fala em raiva justa e desespero, e a Exclaim! diz que a banda dá voz a cada Jane Doe silenciada. É pesado no som e no tema.</p>
+  <h3>Parece com</h3><p>Noise rock e spoken word, na trilha de Lingua Ignota, Big|Brave e Jesus Lizard.</p>
+  <h3>Por que ouvir</h3><p>Um dos discos mais intensos e bem resenhados da semana no rock pesado.</p>
+  <h3>Críticas</h3><ul class="crit"><li><a href="https://www.kerrang.com/album-review-piss-you-made-me-skin-on-linen" target="_blank" rel="noopener">Kerrang!</a> <span class="nota">4/5</span></li><li><a href="https://www.thelineofbestfit.com/albums/piss-confronts-our-culture-of-sexual-violence-on-you-made-me-skin-on-linen" target="_blank" rel="noopener">The Line of Best Fit</a></li><li><a href="https://exclaim.ca/music/article/piss-you-made-me-skin-on-linen-album-review" target="_blank" rel="noopener">Exclaim!</a></li></ul>
+  <p class="src">Fontes: <a href="https://www.kerrang.com/album-review-piss-you-made-me-skin-on-linen" target="_blank" rel="noopener">Kerrang!</a> · <a href="https://www.thelineofbestfit.com/albums/piss-confronts-our-culture-of-sexual-violence-on-you-made-me-skin-on-linen" target="_blank" rel="noopener">The Line of Best Fit</a> · <a href="https://exclaim.ca/music/article/piss-you-made-me-skin-on-linen-album-review" target="_blank" rel="noopener">Exclaim!</a> · <a href="https://open.spotify.com/album/4L3aQdOW11hKFGRbpkw3wN" target="_blank" rel="noopener">Spotify</a></p>
+  <a class="spot" href="https://open.spotify.com/album/4L3aQdOW11hKFGRbpkw3wN" target="_blank" rel="noopener">▶ Ouvir no Spotify</a>
+ </div>
+</article>
+<article class="card" id="a6">
+ <div class="top"><img src="https://i.scdn.co/image/ab67616d0000b2736153a93ea0494f7ef19650ab" alt="Capa de Burning Song" loading="lazy" width="640" height="640"><span class="num">6</span></div>
+ <div class="body">
+  <div class="badges"><span class="b int">🌍 Internacional</span><span class="b desc">Descoberta</span></div>
+  <div class="genres"><span class="g">Drone</span><span class="g">Ambient</span><span class="g">Música contemporânea</span></div>
+  <h2>Burning Song</h2>
+  <p class="artist">Kali Malone <span class="date">· 30 out 2026</span></p>
+  <h3>Sobre o disco</h3><p>A compositora americana radicada na Suécia Kali Malone é um dos nomes centrais do drone contemporâneo, conhecida pelas longas peças para órgão de tubos. Em Burning Song, a Line of Best Fit (nota 8) diz que ela expõe o trabalho por trás da transcendência e traz o céu para a terra; a Paste (83) ouve um disco que se abre para o infinito.</p>
+  <h3>Parece com</h3><p>Órgão e drone meditativo, entre Max Richter, Sarah Davachi e William Basinski.</p>
+  <h3>Por que ouvir</h3><p>Seu 9 para Max Richter indica que esse tipo de música lenta e enorme funciona para você.</p>
+  <h3>Críticas</h3><ul class="crit"><li><a href="https://www.thelineofbestfit.com/albums/on-burning-song-kali-malone-lays-the-labour-behind-transcendence-bare" target="_blank" rel="noopener">The Line of Best Fit</a> <span class="nota">8/10</span></li><li><a href="https://www.pastemagazine.com/music/kali-malone/kali-malones-burning-song-opens-onto-the-infinite" target="_blank" rel="noopener">Paste</a> <span class="nota">83</span></li></ul>
+  <p class="src">Fontes: <a href="https://www.thelineofbestfit.com/albums/on-burning-song-kali-malone-lays-the-labour-behind-transcendence-bare" target="_blank" rel="noopener">The Line of Best Fit</a> · <a href="https://www.pastemagazine.com/music/kali-malone/kali-malones-burning-song-opens-onto-the-infinite" target="_blank" rel="noopener">Paste</a> · <a href="https://open.spotify.com/album/6rkiieHSmjekjpj5OZ05wQ" target="_blank" rel="noopener">Spotify</a></p>
+  <a class="spot" href="https://open.spotify.com/album/6rkiieHSmjekjpj5OZ05wQ" target="_blank" rel="noopener">▶ Ouvir no Spotify</a>
+ </div>
+</article>
+<article class="card" id="a7">
+ <div class="top"><img src="https://i.scdn.co/image/ab67616d0000b273c267cd4961211654e746360e" alt="Capa de Uma Celebração A Os Tincoãs" loading="lazy" width="640" height="640"><span class="num">7</span></div>
+ <div class="body">
+  <div class="badges"><span class="b nac">🇧🇷 Nacional</span><span class="b desc">Descoberta</span></div>
+  <div class="genres"><span class="g">Música afro-brasileira</span><span class="g">MPB</span><span class="g">Samba</span></div>
+  <h2>Uma Celebração A Os Tincoãs</h2>
+  <p class="artist">Pra Gira Girar <span class="date">· 30 out 2026</span></p>
+  <h3>Sobre o disco</h3><p>O coletivo Pra Gira Girar lança, pelo selo Amor in Sound, um disco de gravações novas que reverbera o legado dos Tincoãs, o trio baiano que levou os cantos afro-religiosos para a MPB nos anos 70. A produção é de Mario Caldato e Kassin, e o G1 e a Rolling Stone Brasil destacam o disco como celebração e continuação dessa herança, não como cópia.</p>
+  <h3>Parece com</h3><p>Cantos de terreiro e harmonias vocais baianas, perto dos Tincoãs, de Mateus Aleluia e do Metá Metá.</p>
+  <h3>Por que ouvir</h3><p>Produção de Kassin e Mario Caldato em cima de um dos repertórios mais bonitos da música baiana.</p>
+  <p class="src">Notícias: <a href="https://g1.globo.com/pop-arte/musica/blog/mauro-ferreira/post/2026/10/09/coletivo-pra-gira-girar-lanca-album-que-reverbera-legado-do-grupo-os-tincoas.ghtml" target="_blank" rel="noopener">G1 (Mauro Ferreira)</a> · <a href="https://rollingstone.com.br/musica/pra-gira-girar-celebra-o-legado-do-trio-os-tincoas-em-novo-disco/" target="_blank" rel="noopener">Rolling Stone Brasil</a></p>
+  <p class="src">Fontes: <a href="https://g1.globo.com/pop-arte/musica/blog/mauro-ferreira/post/2026/10/09/coletivo-pra-gira-girar-lanca-album-que-reverbera-legado-do-grupo-os-tincoas.ghtml" target="_blank" rel="noopener">G1 (Mauro Ferreira)</a> · <a href="https://rollingstone.com.br/musica/pra-gira-girar-celebra-o-legado-do-trio-os-tincoas-em-novo-disco/" target="_blank" rel="noopener">Rolling Stone Brasil</a> · <a href="https://open.spotify.com/album/2mlesXwhrVSrtiAhm7MetM" target="_blank" rel="noopener">Spotify</a></p>
+  <a class="spot" href="https://open.spotify.com/album/2mlesXwhrVSrtiAhm7MetM" target="_blank" rel="noopener">▶ Ouvir no Spotify</a>
+ </div>
+</article>
+<article class="card" id="a8">
+ <div class="top"><img src="https://i.scdn.co/image/ab67616d0000b273bb30e3163b5014f5a65d976d" alt="Capa de Fairweather Friend" loading="lazy" width="640" height="640"><span class="num">8</span></div>
+ <div class="body">
+  <div class="badges"><span class="b int">🌍 Internacional</span><span class="b desc">Descoberta</span></div>
+  <div class="genres"><span class="g">Folk</span><span class="g">Singer-songwriter</span><span class="g">Soft rock</span></div>
+  <h2>Fairweather Friend</h2>
+  <p class="artist">Sam Burton <span class="date">· 30 out 2026</span></p>
+  <h3>Sobre o disco</h3><p>O cantor e compositor americano Sam Burton faz folk de cantautor à moda dos anos 70. Sobre Fairweather Friend, a Line of Best Fit (nota 8) resume que um truque antigo bem feito vale mais que dez novos; a NARC. também elogiou o disco.</p>
+  <h3>Parece com</h3><p>Folk orquestral setentista, entre Harry Nilsson, Fred Neil e Jonathan Wilson.</p>
+  <h3>Por que ouvir</h3><p>Para os dias em que você quer canção bem escrita e arranjo caprichado.</p>
+  <h3>Críticas</h3><ul class="crit"><li><a href="https://www.thelineofbestfit.com/albums/sam-burton-fairweather-friend-proves-that-an-old-trick-done-well-is-better-than-ten-new-ones" target="_blank" rel="noopener">The Line of Best Fit</a> <span class="nota">8/10</span></li><li><a href="https://narcmagazine.com/album-review-sam-burton-fairweather-friend/" target="_blank" rel="noopener">NARC.</a></li></ul>
+  <p class="src">Fontes: <a href="https://www.thelineofbestfit.com/albums/sam-burton-fairweather-friend-proves-that-an-old-trick-done-well-is-better-than-ten-new-ones" target="_blank" rel="noopener">The Line of Best Fit</a> · <a href="https://narcmagazine.com/album-review-sam-burton-fairweather-friend/" target="_blank" rel="noopener">NARC.</a> · <a href="https://open.spotify.com/album/65AZvUTONNxZ6QaRRyNCka" target="_blank" rel="noopener">Spotify</a></p>
+  <a class="spot" href="https://open.spotify.com/album/65AZvUTONNxZ6QaRRyNCka" target="_blank" rel="noopener">▶ Ouvir no Spotify</a>
+ </div>
+</article>
+<article class="card" id="a9">
+ <div class="top"><img src="https://i.scdn.co/image/ab67616d0000b2735dd4ea494a49e45057063d98" alt="Capa de Pélvica" loading="lazy" width="640" height="640"><span class="num">9</span></div>
+ <div class="body">
+  <div class="badges"><span class="b nac">🇧🇷 Nacional</span><span class="b desc">Descoberta</span></div>
+  <div class="genres"><span class="g">Pop rock</span><span class="g">MPB</span><span class="g">Música baiana</span></div>
+  <h2>Pélvica</h2>
+  <p class="artist">Rebeca Matta <span class="date">· 30 out 2026</span></p>
+  <h3>Sobre o disco</h3><p>A cantora baiana Rebeca Matta volta com Pélvica, primeiro álbum em 13 anos, segundo o G1. O disco tem a faixa &quot;Olho no Olho&quot;, com Larissa Luz, Chico César e Mateus Aleluia.</p>
+  <h3>Parece com</h3><p>Pop-rock baiano com sotaque afro, perto de Larissa Luz, Céu e Ava Rocha.</p>
+  <h3>Por que ouvir</h3><p>Um retorno raro, com convidados de peso da Bahia.</p>
+  <p class="src">Notícias: <a href="https://g1.globo.com/pop-arte/musica/blog/mauro-ferreira/post/2026/10/25/rebeca-matta-retorna-com-pelvica-primeiro-album-da-artista-em-13-anos.ghtml" target="_blank" rel="noopener">G1 (Mauro Ferreira)</a></p>
+  <p class="src">Fontes: <a href="https://g1.globo.com/pop-arte/musica/blog/mauro-ferreira/post/2026/10/25/rebeca-matta-retorna-com-pelvica-primeiro-album-da-artista-em-13-anos.ghtml" target="_blank" rel="noopener">G1 (Mauro Ferreira)</a> · <a href="https://open.spotify.com/album/6JScuu24p3hMig2HGrsYrt" target="_blank" rel="noopener">Spotify</a></p>
+  <a class="spot" href="https://open.spotify.com/album/6JScuu24p3hMig2HGrsYrt" target="_blank" rel="noopener">▶ Ouvir no Spotify</a>
+ </div>
+</article>
+<article class="card" id="a10">
+ <div class="top"><img src="https://i.scdn.co/image/ab67616d0000b2730e34d50309f27afc22745e6a" alt="Capa de Save As" loading="lazy" width="640" height="640"><span class="num">10</span></div>
+ <div class="body">
+  <div class="badges"><span class="b int">🌍 Internacional</span><span class="b desc">Descoberta</span></div>
+  <div class="genres"><span class="g">Indie pop</span><span class="g">Art pop</span><span class="g">Eletrônica</span></div>
+  <h2>Save As</h2>
+  <p class="artist">Ex:Re <span class="date">· 30 out 2026</span></p>
+  <h3>Sobre o disco</h3><p>Ex:Re é o projeto solo de Elena Tonra, voz do Daughter, e Save As sai pela 4AD. A Slant chama o disco de um retrato hipnótico da consciência moderna; o The List destaca a voz envolvente de Tonra, e o God Is In The TV também resenhou. É indie melancólico, eletrônico e íntimo.</p>
+  <h3>Parece com</h3><p>Indie eletrônico e confessional, entre Daughter, Rachel Chinouriri nos momentos mais calmos e Phoebe Bridgers.</p>
+  <h3>Por que ouvir</h3><p>Seu 8,7 para Rachel Chinouriri sugere que esse indie de voz em primeiro plano vai bater.</p>
+  <h3>Críticas</h3><ul class="crit"><li><a href="https://www.slantmagazine.com/music/exre-save-as-album-review/" target="_blank" rel="noopener">Slant</a></li><li><a href="https://list.co.uk/news/exre-save-as-album-review-a-compelling-voice-49224" target="_blank" rel="noopener">The List</a></li><li><a href="https://www.godisinthetvzine.co.uk/2026/10/23/exre-save-as-4ad/" target="_blank" rel="noopener">God Is In The TV</a></li></ul>
+  <p class="src">Fontes: <a href="https://www.slantmagazine.com/music/exre-save-as-album-review/" target="_blank" rel="noopener">Slant</a> · <a href="https://list.co.uk/news/exre-save-as-album-review-a-compelling-voice-49224" target="_blank" rel="noopener">The List</a> · <a href="https://www.godisinthetvzine.co.uk/2026/10/23/exre-save-as-4ad/" target="_blank" rel="noopener">God Is In The TV</a> · <a href="https://open.spotify.com/album/30RFBvHSXe6qHIS2w9hz3f" target="_blank" rel="noopener">Spotify</a></p>
+  <a class="spot" href="https://open.spotify.com/album/30RFBvHSXe6qHIS2w9hz3f" target="_blank" rel="noopener">▶ Ouvir no Spotify</a>
+ </div>
+</article>
+<article class="card" id="a11">
+ <div class="top"><img src="https://i.scdn.co/image/ab67616d0000b27302f1395e41d8f010714d176e" alt="Capa de Big Sur" loading="lazy" width="640" height="640"><span class="num">11</span></div>
+ <div class="body">
+  <div class="badges"><span class="b int">🌍 Internacional</span><span class="b desc">Descoberta</span></div>
+  <div class="genres"><span class="g">Indie rock</span><span class="g">Post-hardcore</span><span class="g">Emo</span></div>
+  <h2>Big Sur</h2>
+  <p class="artist">Big Red <span class="date">· 30 out 2026</span></p>
+  <h3>Sobre o disco</h3><p>Big Sur é a estreia da banda Big Red, um indie rock com energia de post-hardcore. A Line of Best Fit (nota 8) fala em amor e raiva enroscados em saudade, de uma banda que segue o instinto; a Clash também deu 8.</p>
+  <h3>Parece com</h3><p>Indie rock emotivo e barulhento, entre Wednesday, Ratboys e Pity Sex.</p>
+  <h3>Por que ouvir</h3><p>Uma estreia muito bem recebida, para quem gosta de guitarra com coração.</p>
+  <h3>Críticas</h3><ul class="crit"><li><a href="https://www.thelineofbestfit.com/albums/big-red-go-with-their-gut-on-big-sur" target="_blank" rel="noopener">The Line of Best Fit</a> <span class="nota">8/10</span></li><li><a href="https://www.clashmusic.com/reviews/big-red-big-sur/" target="_blank" rel="noopener">Clash</a> <span class="nota">8/10</span></li></ul>
+  <p class="src">Fontes: <a href="https://www.thelineofbestfit.com/albums/big-red-go-with-their-gut-on-big-sur" target="_blank" rel="noopener">The Line of Best Fit</a> · <a href="https://www.clashmusic.com/reviews/big-red-big-sur/" target="_blank" rel="noopener">Clash</a> · <a href="https://open.spotify.com/album/6gq6GEqt9PmA5Ug2lTXGef" target="_blank" rel="noopener">Spotify</a></p>
+  <a class="spot" href="https://open.spotify.com/album/6gq6GEqt9PmA5Ug2lTXGef" target="_blank" rel="noopener">▶ Ouvir no Spotify</a>
+ </div>
+</article>
+<article class="card" id="a12">
+ <div class="top"><img src="https://i.scdn.co/image/ab67616d0000b2738220e0e06eb9ce2599548e7b" alt="Capa de Retalho Carrossel" loading="lazy" width="640" height="640"><span class="num">12</span></div>
+ <div class="body">
+  <div class="badges"><span class="b nac">🇧🇷 Nacional</span><span class="b desc">Descoberta</span></div>
+  <div class="genres"><span class="g">Indie</span><span class="g">MPB</span><span class="g">Folk</span></div>
+  <h2>Retalho Carrossel</h2>
+  <p class="artist">Julia Benford <span class="date">· 30 out 2026</span></p>
+  <h3>Sobre o disco</h3><p>A cantora e compositora Julia Benford lança Retalho Carrossel, disco que transita entre rock, folk, indie e MPB. A Rota Indie conta que o álbum abraça a própria estranheza dela.</p>
+  <h3>Parece com</h3><p>Indie brasileiro de cantautora, perto de Tulipa Ruiz, Ana Frango Elétrico e Maria Beraldo.</p>
+  <h3>Por que ouvir</h3><p>Uma descoberta nacional do indie que dialoga com o que você já ouve de MPB moderna.</p>
+  <p class="src">Notícias: <a href="https://rotaindie.com/julia-benford-abraca-a-propria-estranheza-em-novo-album-retalho-carrossel/" target="_blank" rel="noopener">Rota Indie</a></p>
+  <p class="src">Fontes: <a href="https://rotaindie.com/julia-benford-abraca-a-propria-estranheza-em-novo-album-retalho-carrossel/" target="_blank" rel="noopener">Rota Indie</a> · <a href="https://open.spotify.com/album/2Xvsj3zTUwU5BJX7xGgCf0" target="_blank" rel="noopener">Spotify</a></p>
+  <a class="spot" href="https://open.spotify.com/album/2Xvsj3zTUwU5BJX7xGgCf0" target="_blank" rel="noopener">▶ Ouvir no Spotify</a>
+ </div>
+</article>
+<article class="card" id="a13">
+ <div class="top"><img src="https://i.scdn.co/image/ab67616d0000b273a5d591caf6b4200c78b52a3e" alt="Capa de Late Loop" loading="lazy" width="640" height="640"><span class="num">13</span></div>
+ <div class="body">
+  <div class="badges"><span class="b int">🌍 Internacional</span><span class="b desc">Descoberta</span></div>
+  <div class="genres"><span class="g">Eletrônica</span><span class="g">Techno</span><span class="g">Ambient</span></div>
+  <h2>Late Loop</h2>
+  <p class="artist">Andy Stott <span class="date">· 30 out 2026</span></p>
+  <h3>Sobre o disco</h3><p>Primeiro disco do produtor de Manchester Andy Stott em cinco anos, Late Loop sai pela Modern Love e traz de novo as vozes de Alison Skidmore e Elaine Howley O Quietus está entre os veículos que já resenharam o disco.</p>
+  <h3>Parece com</h3><p>Eletrônica lenta e enevoada, entre Demdike Stare, Burial e Actress.</p>
+  <h3>Por que ouvir</h3><p>Liga o seu gosto por ambient (Max Richter) a um lado mais rítmico e noturno.</p>
+  <h3>Críticas</h3><ul class="crit"><li><a href="https://thequietus.com/quietus-reviews/andy-stott-late-loop-review/" target="_blank" rel="noopener">The Quietus</a></li></ul>
+  <p class="src">Fontes: <a href="https://thequietus.com/quietus-reviews/andy-stott-late-loop-review/" target="_blank" rel="noopener">The Quietus</a> · <a href="https://open.spotify.com/album/5ma4Jeo1KwJXQpBOKkq2PF" target="_blank" rel="noopener">Spotify</a></p>
+  <a class="spot" href="https://open.spotify.com/album/5ma4Jeo1KwJXQpBOKkq2PF" target="_blank" rel="noopener">▶ Ouvir no Spotify</a>
+ </div>
+</article>
+<article class="card" id="a14">
+ <div class="top"><img src="https://i.scdn.co/image/ab67616d0000b273599a6d3a83c170350aad96b5" alt="Capa de Forever" loading="lazy" width="640" height="640"><span class="num">14</span></div>
+ <div class="body">
+  <div class="badges"><span class="b int">🌍 Internacional</span><span class="b desc">Descoberta</span></div>
+  <div class="genres"><span class="g">Indie pop</span><span class="g">Disco</span><span class="g">Pop rock</span></div>
+  <h2>Forever</h2>
+  <p class="artist">The Big Moon <span class="date">· 30 out 2026</span></p>
+  <h3>Sobre o disco</h3><p>A banda londrina The Big Moon escreveu Forever a partir de uma experiência de perda auditiva. O Guardian diz que esse inferno inspirou um pop-disco desafiadoramente esperançoso; o musicOMH deu 4/5.</p>
+  <h3>Parece com</h3><p>Indie pop com brilho disco, entre Wet Leg, Haim e Self Esteem.</p>
+  <h3>Por que ouvir</h3><p>Pop luminoso com história forte, na linha do indie pop melódico que você pontuou bem.</p>
+  <h3>Críticas</h3><ul class="crit"><li><a href="https://www.theguardian.com/music/2026/oct/29/the-big-moon-forever-review" target="_blank" rel="noopener">The Guardian</a></li><li><a href="https://www.musicomh.com/reviews/albums/the-big-moon-forever" target="_blank" rel="noopener">musicOMH</a> <span class="nota">4/5</span></li></ul>
+  <p class="src">Fontes: <a href="https://www.theguardian.com/music/2026/oct/29/the-big-moon-forever-review" target="_blank" rel="noopener">The Guardian</a> · <a href="https://www.musicomh.com/reviews/albums/the-big-moon-forever" target="_blank" rel="noopener">musicOMH</a> · <a href="https://open.spotify.com/album/2Olo9hqVde8YRHF5KCp0pS" target="_blank" rel="noopener">Spotify</a></p>
+  <a class="spot" href="https://open.spotify.com/album/2Olo9hqVde8YRHF5KCp0pS" target="_blank" rel="noopener">▶ Ouvir no Spotify</a>
+ </div>
+</article>
+<article class="card" id="a15">
+ <div class="top"><img src="https://i.scdn.co/image/ab67616d0000b27363d6d3d7753cade1ceade8e9" alt="Capa de The Mosquito Bowl (Soundtrack from the Netflix Film)" loading="lazy" width="640" height="640"><span class="num">15</span></div>
+ <div class="body">
+  <div class="badges"><span class="b int">🌍 Internacional</span><span class="b acc">Você acompanha</span></div>
+  <div class="genres"><span class="g">Post-rock</span><span class="g">Trilha sonora</span><span class="g">Instrumental</span></div>
+  <h2>The Mosquito Bowl (Soundtrack from the Netflix Film)</h2>
+  <p class="artist">Explosions In The Sky <span class="date">· 30 out 2026</span></p>
+  <h3>Sobre o disco</h3><p>Explosions in the Sky voltam a trabalhar com o diretor Peter Berg (com quem fizeram Friday Night Lights) na trilha original de The Mosquito Bowl, filme da Netflix que estreou nos cinemas em 30 de outubro. São 17 faixas inéditas lançadas pela Netflix Music, com o post-rock cinematográfico da banda em formato de trilha.</p>
+  <h3>Parece com</h3><p>Post-rock instrumental e cinematográfico, entre Mogwai, Hammock e a própria trilha de Friday Night Lights.</p>
+  <h3>Por que ouvir</h3><p>Você segue a banda, e é material novo deles.</p>
+  <p class="src">Notícias: <a href="https://filmmusicreporter.com/2026/10/29/the-mosquito-bowl-soundtrack-album-details/" target="_blank" rel="noopener">Film Music Reporter</a></p>
+  <p class="src">Fontes: <a href="https://filmmusicreporter.com/2026/10/29/the-mosquito-bowl-soundtrack-album-details/" target="_blank" rel="noopener">Film Music Reporter</a> · <a href="https://open.spotify.com/album/68gPKzIyOsrMRvHRpxxuka" target="_blank" rel="noopener">Spotify</a></p>
+  <a class="spot" href="https://open.spotify.com/album/68gPKzIyOsrMRvHRpxxuka" target="_blank" rel="noopener">▶ Ouvir no Spotify</a>
+ </div>
+</article>
+<article class="card" id="a16">
+ <div class="top"><img src="https://i.scdn.co/image/ab67616d0000b27319c8cdb7769bbfd66587f26f" alt="Capa de Nu Zamrock" loading="lazy" width="640" height="640"><span class="num">16</span></div>
+ <div class="body">
+  <div class="badges"><span class="b int">🌍 Internacional</span><span class="b desc">Descoberta</span></div>
+  <div class="genres"><span class="g">Hip hop</span><span class="g">Zamrock</span><span class="g">Soul</span></div>
+  <h2>Nu Zamrock</h2>
+  <p class="artist">Sampa the Great <span class="date">· 30 out 2026</span></p>
+  <h3>Sobre o disco</h3><p>A rapper zambiana Sampa the Great revisita o zamrock, o rock psicodélico da Zâmbia dos anos 70, e o atualiza com rap e soul em Nu Zamrock. O AU Review deu 4,5/5 e a Hive também elogiou; a Dazed contou a história do gênero cult que inspira o disco.</p>
+  <h3>Parece com</h3><p>Rap com rock psicodélico africano, entre WITCH, Little Simz e Ezra Collective.</p>
+  <h3>Por que ouvir</h3><p>Ponte entre o rap que você ouve e o rock psicodélico, com raiz africana.</p>
+  <h3>Críticas</h3><ul class="crit"><li><a href="https://www.theaureview.com/music/sampa-the-great-nu-zamrock-review/" target="_blank" rel="noopener">The AU Review</a> <span class="nota">4.5/5</span></li><li><a href="https://www.hivemagazine.net/music-reviews/sampa-the-great-nu-zamrock" target="_blank" rel="noopener">Hive</a></li></ul><p class="src">Notícias: <a href="https://www.dazeddigital.com/music/article/71255/1/nu-zamrock-sampa-the-great-cult-genre-zambia-album" target="_blank" rel="noopener">Dazed</a></p>
+  <p class="src">Fontes: <a href="https://www.theaureview.com/music/sampa-the-great-nu-zamrock-review/" target="_blank" rel="noopener">The AU Review</a> · <a href="https://www.hivemagazine.net/music-reviews/sampa-the-great-nu-zamrock" target="_blank" rel="noopener">Hive</a> · <a href="https://www.dazeddigital.com/music/article/71255/1/nu-zamrock-sampa-the-great-cult-genre-zambia-album" target="_blank" rel="noopener">Dazed</a> · <a href="https://open.spotify.com/album/3XRKBEcQMSiMzGcGQJ2qDz" target="_blank" rel="noopener">Spotify</a></p>
+  <a class="spot" href="https://open.spotify.com/album/3XRKBEcQMSiMzGcGQJ2qDz" target="_blank" rel="noopener">▶ Ouvir no Spotify</a>
+ </div>
+</article>
+</main>
+<footer>Críticas resumidas e parafraseadas das fontes citadas em cada card. Datas conforme o Spotify (mercado BR).</footer>
+</body></html>
