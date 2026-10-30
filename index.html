@@ -1,42 +1,290 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Music Curator · Discos</title><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#14121a"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
-<style>:root{--bg:#14121a;--card:#1e1b27;--fg:#f2eff7;--mut:#a9a3b8;--acc:#1ed760;--line:#2e2a3a}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.45 system-ui,sans-serif}
-header{padding:18px 16px 6px;max-width:760px;margin:auto}h1{margin:0;font-size:1.5rem}header p{margin:4px 0;color:var(--mut);font-size:.9rem}
-.tabs{display:flex;gap:6px;max-width:760px;margin:8px auto;padding:0 16px}.tabs button,.chip{background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:999px;padding:7px 13px;font-size:.88rem}
-.tabs button.on,.chip.on{background:var(--acc);color:#0b0b0b;border-color:var(--acc);font-weight:600}
-main{max-width:760px;margin:auto;padding:0 16px 40px}.bar{position:sticky;top:0;background:var(--bg);padding:8px 0;z-index:2}
-input,select{width:100%;background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:12px;padding:11px 13px;font-size:1rem}
-.chips{display:flex;gap:6px;overflow-x:auto;padding:8px 0;scrollbar-width:none}.chip{white-space:nowrap;flex:none}
-.row{display:flex;gap:6px}.row select{flex:1;padding:8px}.cnt{color:var(--mut);font-size:.85rem;margin:4px 0}
-.ed,.al{display:flex;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px;margin:8px 0;color:inherit;text-decoration:none;align-items:center}
-.ed b{display:block}.ed small,.al small{color:var(--mut)}.al img{width:64px;height:64px;border-radius:8px;flex:none;object-fit:cover}
-.al .t{font-weight:600}.tg{display:inline-block;font-size:.72rem;border:1px solid var(--line);border-radius:6px;padding:1px 6px;margin:3px 3px 0 0;color:var(--mut)}
-.tg.n{color:#ffd166}.tg.k{color:var(--acc)}#inst{display:none;margin-left:auto}</style></head><body>
-<header><h1>🎧 Music Curator</h1><p>Todas as edições e discos, com busca e filtros.</p></header>
-<div class="tabs"><button class="on" data-t="eds">Edições</button><button data-t="als">Discos</button><button id="inst" class="chip">⬇ Instalar</button></div>
-<main><section id="eds"></section>
-<section id="als" hidden><div class="bar"><input id="q" type="search" placeholder="Buscar artista, disco, texto…">
-<div class="chips" id="ch"><button class="chip" data-f="nac">🇧🇷 Nacionais</button><button class="chip" data-f="int">🌍 Internacionais</button><button class="chip" data-f="known">Você acompanha</button><button class="chip" data-f="disc">Descobertas</button><button class="chip" data-f="rev">Com críticas</button></div>
-<div class="row"><select id="fe"><option value="">Todas as edições</option></select><select id="fg"><option value="">Todos os gêneros</option></select><select id="fy"><option value="">Ano</option></select></div>
-<div class="cnt" id="cnt"></div></div><div id="list"></div></section></main>
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Music Curator · Discos</title>
+<meta name="description" content="Todas as edições do Music Curator, com busca e filtros de discos.">
+<meta name="theme-color" content="#14121a">
+<meta name="color-scheme" content="dark">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Discos">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="albums.json" as="fetch" crossorigin="anonymous">
+<style>
+:root{--bg:#14121a;--card:#1e1b27;--card2:#26222f;--fg:#f2eff7;--mut:#a9a3b8;--acc:#1ed760;--line:#2e2a3a;--note:#2a2438;--note-line:#3d3552;--link:#c9b8ff}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;padding:env(safe-area-inset-top) env(safe-area-inset-right) calc(32px + env(safe-area-inset-bottom)) env(safe-area-inset-left);-webkit-tap-highlight-color:transparent}
+button,input,select{font:inherit;color:inherit}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.wrap{max-width:760px;margin:0 auto;padding:0 14px}
+header.top{display:flex;align-items:center;gap:10px;padding:22px 0 6px}
+header.top h1{font-size:1.6rem;line-height:1.2;margin:0;letter-spacing:-.02em}
+header.top p{color:var(--mut);margin:2px 0 0;font-size:.92rem}
+header.top .grow{flex:1;min-width:0}
+.btn{background:var(--card2);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:.88rem;font-weight:600;cursor:pointer;white-space:nowrap;min-height:40px}
+.btn.pri{background:var(--acc);border-color:var(--acc);color:#04120a}
+.pill{font-size:.75rem;font-weight:700;padding:3px 9px;border-radius:999px;background:#3a2a10;color:#ffcf73}
+[hidden]{display:none!important}
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:4px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:4px;margin:12px 0 6px}
+.tabs button{background:none;border:0;border-radius:10px;padding:10px;font-weight:700;color:var(--mut);cursor:pointer;min-height:44px}
+.tabs button[aria-selected=true]{background:var(--card2);color:var(--fg);box-shadow:inset 0 -2px 0 var(--acc)}
+.tabs small{font-weight:600;color:var(--mut)}
+/* edições */
+.ed{display:flex;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px;margin:10px 0;text-decoration:none}
+.ed:active{transform:scale(.99)}
+.mos{width:84px;height:84px;flex:none;display:grid;grid-template-columns:1fr 1fr;border-radius:12px;overflow:hidden;background:#000}
+.mos img{width:100%;height:100%;object-fit:cover;display:block}
+.mos.one{grid-template-columns:1fr}
+.ed .info{min-width:0;flex:1}
+.ed b{display:block;font-size:1.05rem;line-height:1.25}
+.ed .meta{display:block;color:var(--mut);font-size:.84rem;margin-top:2px}
+.ed .sub{color:var(--mut);opacity:.85;font-size:.82rem;margin-top:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.new{display:inline-block;margin-left:6px;font-size:.68rem;font-weight:800;vertical-align:2px;padding:2px 7px;border-radius:999px;background:var(--acc);color:#04120a}
+.kind{font-weight:700;color:var(--fg)}
+/* discos */
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0 6px;margin:0 -14px;padding-left:14px;padding-right:14px;border-bottom:1px solid transparent}
+.bar.stuck{border-bottom-color:var(--line)}
+.search{position:relative}
+.search input{width:100%;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 44px 12px 40px;font-size:1rem;-webkit-appearance:none;appearance:none}
+.search input::-webkit-search-cancel-button{display:none}
+.search .ico{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--mut);pointer-events:none}
+.search .x{position:absolute;right:4px;top:50%;transform:translateY(-50%);background:none;border:0;color:var(--mut);font-size:1.3rem;width:40px;height:40px;cursor:pointer}
+.chips{display:flex;gap:6px;overflow-x:auto;padding:8px 0 2px;scrollbar-width:none}.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:7px 12px;font-size:.86rem;font-weight:600;cursor:pointer;min-height:38px;color:var(--mut)}
+.chip[aria-pressed=true]{color:var(--fg)}
+.chip.nac[aria-pressed=true]{background:#0f3d24;border-color:#1c6b40;color:#7ef0a8}
+.chip.int[aria-pressed=true]{background:#1f2c48;border-color:#33497a;color:#9cc0ff}
+.chip.acc[aria-pressed=true]{background:#3a2a10;border-color:#6a4d1d;color:#ffcf73}
+.chip.desc[aria-pressed=true]{background:#3b1834;border-color:#6b2c5f;color:#ff9ad8}
+.chip.rev[aria-pressed=true]{background:var(--note);border-color:var(--note-line);color:var(--link)}
+.sel{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}
+.sel label{position:relative;display:block}
+.sel span{position:absolute;left:12px;top:5px;font-size:.66rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);pointer-events:none}
+.sel select{width:100%;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:19px 28px 6px 11px;font-size:.9rem;-webkit-appearance:none;appearance:none;min-height:46px;background-image:linear-gradient(45deg,transparent 50%,var(--mut) 50%),linear-gradient(135deg,var(--mut) 50%,transparent 50%);background-position:calc(100% - 15px) 55%,calc(100% - 10px) 55%;background-size:5px 5px;background-repeat:no-repeat;text-overflow:ellipsis}
+.sel select.on{border-color:var(--acc)}
+.status{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px;min-height:32px}
+.cnt{color:var(--mut);font-size:.86rem}
+.clear{background:none;border:1px solid var(--line);border-radius:999px;color:var(--link);font-weight:600;font-size:.84rem;padding:5px 12px;cursor:pointer;min-height:32px}
+.al{display:flex;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px;margin:8px 0;text-decoration:none;align-items:flex-start}
+.al:active{transform:scale(.99)}
+.cv{width:72px;height:72px;border-radius:10px;flex:none;object-fit:cover;background:#000;display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--mut);background-image:linear-gradient(135deg,#2a2438,#14121a);font-size:1.3rem}
+.al .info{min-width:0;flex:1}
+.al .t{font-weight:700;line-height:1.25}
+.al .ar{font-weight:600;font-size:.92rem;color:var(--fg);opacity:.92}
+.al .m{color:var(--mut);font-size:.8rem;margin-top:1px}
+.al .s{color:var(--mut);font-size:.82rem;margin-top:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.b{font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:999px}
+.b.nac{background:#0f3d24;color:#7ef0a8}.b.int{background:#1f2c48;color:#9cc0ff}.b.acc{background:#3a2a10;color:#ffcf73}.b.desc{background:#3b1834;color:#ff9ad8}.b.rev{background:var(--note);color:var(--link)}
+.g{font-size:.7rem;padding:1px 8px;border-radius:999px;border:1px solid var(--line);color:var(--mut)}
+.empty{text-align:center;color:var(--mut);padding:40px 10px}
+.more{display:block;width:100%;margin:12px 0}
+.note{background:var(--note);border:1px solid var(--note-line);border-radius:12px;padding:12px 14px;margin:14px 0}
+footer{color:var(--mut);font-size:.8rem;text-align:center;margin-top:24px}
+#toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));transform:translate(-50%,calc(100% + 40px));visibility:hidden;background:var(--card2);border:1px solid var(--note-line);border-radius:14px;padding:10px 12px 10px 16px;display:flex;gap:12px;align-items:center;box-shadow:0 8px 30px rgba(0,0,0,.5);transition:transform .25s,visibility .25s;z-index:10;max-width:calc(100% - 24px);font-size:.92rem}
+#toast.show{transform:translate(-50%,0);visibility:visible}
+@media(min-width:700px){.sel{grid-template-columns:repeat(4,1fr)}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<div class="wrap">
+<header class="top">
+ <div class="grow"><h1>🎧 Music Curator</h1><p>Todas as edições e discos, com busca e filtros</p></div>
+ <span class="pill" id="off" hidden>offline</span>
+ <button class="btn pri" id="inst" hidden>⬇ Instalar</button>
+</header>
+<nav class="tabs" role="tablist">
+ <button role="tab" id="t-edicoes" aria-controls="edicoes" aria-selected="true">Edições <small id="n-eds"></small></button>
+ <button role="tab" id="t-discos" aria-controls="discos" aria-selected="false">Discos <small id="n-als"></small></button>
+</nav>
+<main>
+<section id="edicoes" role="tabpanel" aria-labelledby="t-edicoes"><p class="empty" id="load">Carregando…</p></section>
+<section id="discos" role="tabpanel" aria-labelledby="t-discos" hidden>
+ <div class="bar" id="bar">
+  <div class="search"><span class="ico" aria-hidden="true">🔍</span><input id="q" type="search" placeholder="Buscar artista, disco, texto…" aria-label="Buscar discos" autocomplete="off" enterkeyhint="search"><button class="x" id="qx" aria-label="Limpar busca" hidden>×</button></div>
+  <div class="chips" id="chips">
+   <button class="chip nac" data-k="o" data-v="nac" aria-pressed="false">🇧🇷 Nacional</button>
+   <button class="chip int" data-k="o" data-v="int" aria-pressed="false">🌍 Internacional</button>
+   <button class="chip acc" data-k="p" data-v="acomp" aria-pressed="false">Você acompanha</button>
+   <button class="chip desc" data-k="p" data-v="desc" aria-pressed="false">Descoberta</button>
+   <button class="chip rev" data-k="c" data-v="1" aria-pressed="false">Com críticas</button>
+  </div>
+  <div class="sel">
+   <label><span>Edição</span><select id="fe" data-k="e"><option value="">Todas</option></select></label>
+   <label><span>Gênero</span><select id="fg" data-k="g"><option value="">Todos</option></select></label>
+   <label><span>Ano</span><select id="fy" data-k="a"><option value="">Todos</option></select></label>
+   <label><span>Ordem</span><select id="fs" data-k="s"><option value="">Edição recente</option><option value="artista">Artista A–Z</option><option value="disco">Disco A–Z</option><option value="lancamento">Lançamento recente</option></select></label>
+  </div>
+  <div class="status"><span class="cnt" id="cnt" role="status" aria-live="polite"></span><button class="clear" id="clr" hidden>✕ Limpar filtros</button></div>
+ </div>
+ <div id="list"></div>
+</section>
+</main>
+<footer>Toque num disco para abrir o card na edição.</footer>
+</div>
+<div id="toast" role="status" aria-live="polite"><span id="tmsg"></span><button class="btn pri" id="tbtn" hidden>Atualizar</button></div>
 <script>
-const $=s=>document.querySelector(s),N=s=>(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();let D,F=new Set();
-const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-document.querySelectorAll('.tabs [data-t]').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs [data-t]').forEach(x=>x.classList.toggle('on',x==b));$('#eds').hidden=b.dataset.t!='eds';$('#als').hidden=b.dataset.t!='als';location.hash=b.dataset.t});
-fetch('albums.json').then(r=>r.json()).then(d=>{D=d;const T=Object.fromEntries(d.editions.map(e=>[e.file,e.title]));
-$('#eds').innerHTML=d.editions.map(e=>`<a class="ed" href="${e.file}"><span style="font-size:1.6rem">${e.kind=='semanal'?'📅':'⭐'}</span><span><b>${esc(e.title)}</b><small>${e.kind=='semanal'?'Semanal':'Edição especial'} · ${e.count} discos</small></span></a>`).join('');
-d.editions.forEach(e=>$('#fe').add(new Option(e.title,e.file)));
-const gs={};d.albums.forEach(a=>a.genres.forEach(g=>{const k=N(g);gs[k]=gs[k]||g}));Object.keys(gs).sort().forEach(k=>$('#fg').add(new Option(gs[k],k)));
-[...new Set(d.albums.map(a=>a.year))].sort().reverse().forEach(y=>$('#fy').add(new Option(y,y)));
-d.albums.forEach(a=>{a.edt=T[a.ed];a.s=N([a.artist,a.album,a.genres.join(' '),a.text].join(' '))});
-if(location.hash=='#als')document.querySelector('[data-t=als]').click();render()});
-function render(){const q=N($('#q').value).split(/\s+/).filter(Boolean),e=$('#fe').value,g=$('#fg').value,y=$('#fy').value;
-const r=D.albums.filter(a=>q.every(w=>a.s.includes(w))&&(!e||a.ed==e)&&(!g||a.genres.some(x=>N(x)==g))&&(!y||a.year==y)&&(!F.has('nac')||a.nac)&&(!F.has('int')||!a.nac)&&(!F.has('known')||a.known)&&(!F.has('disc')||!a.known)&&(!F.has('rev')||a.reviews));
-$('#cnt').textContent=r.length+' discos';
-$('#list').innerHTML=r.map(a=>`<a class="al" href="${a.ed}#${a.id}"><img src="${esc(a.cover)}" alt="" loading="lazy"><span><span class="t">${esc(a.album)}</span><br><small>${esc(a.artist)} · ${esc(a.edt)}</small><br><span class="tg ${a.nac?'n':''}">${a.nac?'🇧🇷 Nacional':'🌍 Intern.'}</span><span class="tg ${a.known?'k':''}">${a.known?'Você acompanha':'Descoberta'}</span>${a.genres.slice(0,2).map(x=>`<span class="tg">${esc(x)}</span>`).join('')}</span></a>`).join('')}
-$('#q').oninput=render;['#fe','#fg','#fy'].forEach(s=>$(s).onchange=render);
-$('#ch').onclick=ev=>{const b=ev.target.closest('.chip');if(!b)return;const f=b.dataset.f;F.has(f)?F.delete(f):F.add(f);b.classList.toggle('on');render()};
-if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js');
-let P;addEventListener('beforeinstallprompt',e=>{e.preventDefault();P=e;$('#inst').style.display='block'});$('#inst').onclick=()=>{P&&P.prompt();$('#inst').style.display='none'};
-</script></body></html>
+(()=>{
+'use strict';
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const N=s=>String(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().trim();
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const coll=new Intl.Collator('pt-BR',{sensitivity:'base',ignorePunctuation:true,numeric:true});
+const MES=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+const fmt=iso=>{const m=/^(\d{4})-(\d\d)-(\d\d)$/.exec(iso||'');return m?`${+m[3]} ${MES[m[2]-1]} ${m[1]}`:''};
+const PAGE=60;
+let D=null,EDS={},S={},limit=PAGE,tab='edicoes';
+const KEYS=['q','o','p','c','e','g','a','s'];
+
+/* ---------- estado na URL: #discos?q=…&o=nac&p=desc&c=1&e=…&g=…&a=2026&s=artista ---------- */
+function readHash(){
+  const h=location.hash.slice(1),i=h.indexOf('?');
+  const name=(i<0?h:h.slice(0,i))||'',qs=new URLSearchParams(i<0?'':h.slice(i+1));
+  S={};KEYS.forEach(k=>{const v=qs.get(k);if(v)S[k]=v});
+  tab=name==='discos'||Object.keys(S).length?'discos':'edicoes';
+}
+function writeHash(push){
+  const qs=new URLSearchParams();KEYS.forEach(k=>{if(S[k])qs.set(k,S[k])});
+  const p=qs.toString(),h='#'+tab+(tab==='discos'&&p?'?'+p:'');
+  if(h!==location.hash)history[push?'pushState':'replaceState'](null,'',h);
+}
+
+/* ---------- abas ---------- */
+function showTab(t,push){
+  tab=t;
+  $$('.tabs [role=tab]').forEach(b=>b.setAttribute('aria-selected',String(b.id==='t-'+t)));
+  $('#edicoes').hidden=t!=='edicoes';$('#discos').hidden=t!=='discos';
+  writeHash(push);
+}
+$('#t-edicoes').onclick=()=>{if(tab!=='edicoes'){showTab('edicoes',true);scrollTo(0,0)}};
+$('#t-discos').onclick=()=>{if(tab!=='discos'){showTab('discos',true);scrollTo(0,0)}};
+
+/* ---------- edições ---------- */
+function renderEditions(){
+  $('#edicoes').innerHTML=D.editions.map((e,i)=>{
+    const cs=(e.covers||[]).slice(0,4),mos=cs.length>=4?cs:cs.slice(0,1);
+    const pic=mos.length?`<span class="mos${mos.length===1?' one':''}" aria-hidden="true">${mos.map(c=>`<img src="${esc(c)}" alt="" loading="lazy" decoding="async">`).join('')}</span>`:`<span class="mos one cv" aria-hidden="true">♪</span>`;
+    return `<a class="ed" href="${esc(e.file)}">${pic}<span class="info"><b>${esc(e.title)}${i===0?'<span class="new">NOVA</span>':''}</b>`+
+      `<span class="meta"><span class="kind">${esc(e.label||e.kind)}</span> · ${esc(fmt(e.date))} · ${e.count} discos</span>`+
+      `<span class="meta">🇧🇷 ${e.nac} nacionais · ${e.known} você acompanha</span>`+
+      (e.subtitle?`<span class="sub">${esc(e.subtitle.replace(/^Music Curator · /,''))}</span>`:'')+`</span></a>`;
+  }).join('')||'<p class="empty">Nenhuma edição ainda.</p>';
+}
+
+/* ---------- filtros ---------- */
+function fillSelects(){
+  const add=(sel,v,t)=>sel.add(new Option(t,v));
+  D.editions.forEach(e=>add($('#fe'),e.file,`${e.title.replace(/ que você precisa conhecer$/,'')} (${e.count})`));
+  const gs={};D.albums.forEach(a=>a.genres.forEach(g=>{const k=N(g);(gs[k]=gs[k]||{n:0,l:{}}).n++;gs[k].l[g]=(gs[k].l[g]||0)+1}));
+  Object.keys(gs).sort(coll.compare).forEach(k=>{const l=Object.entries(gs[k].l).sort((a,b)=>b[1]-a[1])[0][0];add($('#fg'),k,`${l.charAt(0).toUpperCase()+l.slice(1)} (${gs[k].n})`)});
+  [...new Set(D.albums.map(a=>a.year).filter(Boolean))].sort().reverse().forEach(y=>add($('#fy'),y,y));
+}
+function syncControls(){
+  if($('#q').value!==(S.q||''))$('#q').value=S.q||'';
+  $('#qx').hidden=!S.q;
+  $$('#chips .chip').forEach(b=>b.setAttribute('aria-pressed',String(S[b.dataset.k]===b.dataset.v)));
+  $$('.sel select').forEach(s=>{
+    const v=S[s.dataset.k]||'';
+    if(v&&![...s.options].some(o=>o.value===v)){delete S[s.dataset.k]}   // valor antigo/inválido na URL
+    s.value=S[s.dataset.k]||'';s.classList.toggle('on',!!S[s.dataset.k]&&s.id!=='fs');
+  });
+  $('#clr').hidden=!KEYS.some(k=>k!=='s'&&S[k]);
+}
+function filtered(){
+  const words=N(S.q).split(/\s+/).filter(Boolean);
+  const r=D.albums.filter(a=>
+    words.every(w=>a._s.includes(w))&&
+    (!S.o||(S.o==='nac')===a.nac)&&
+    (!S.p||(S.p==='acomp')===a.known)&&
+    (!S.c||a.reviews)&&
+    (!S.e||a.ed===S.e)&&
+    (!S.g||a._g.includes(S.g))&&
+    (!S.a||a.year===S.a));
+  const by={
+    artista:(x,y)=>coll.compare(x.artist,y.artist)||coll.compare(x.album,y.album),
+    disco:(x,y)=>coll.compare(x.album,y.album)||coll.compare(x.artist,y.artist),
+    lancamento:(x,y)=>(y.rel||'').localeCompare(x.rel||'')||x._o-y._o,
+  }[S.s];
+  return by?r.sort(by):r.sort((x,y)=>x._o-y._o);
+}
+function cover(a){
+  return a.cover?`<img class="cv" src="${esc(a.cover)}" alt="" loading="lazy" decoding="async" width="72" height="72">`
+    :`<span class="cv" aria-hidden="true">${esc((a.artist||'?').trim().charAt(0).toUpperCase())}</span>`;
+}
+function renderAlbums(){
+  syncControls();
+  const r=filtered(),total=D.albums.length;
+  $('#cnt').textContent=r.length===total?`${total} discos`:`${r.length} de ${total} discos`;
+  if(!r.length){$('#list').innerHTML='<div class="empty"><p>Nenhum disco encontrado com esses filtros.</p><button class="btn" data-clear>Limpar filtros</button></div>';return}
+  $('#list').innerHTML=r.slice(0,limit).map(a=>
+    `<a class="al" href="${esc(a.ed)}#${esc(a.id)}">${cover(a)}<span class="info">`+
+    `<span class="t">${esc(a.album)}</span><br><span class="ar">${esc(a.artist)}</span>`+
+    `<div class="m">${esc(a._et)}${a.date?' · lançado em '+esc(a.date):''}</div>`+
+    `<div class="tags"><span class="b ${a.nac?'nac':'int'}">${a.nac?'🇧🇷 Nacional':'🌍 Internacional'}</span>`+
+    `<span class="b ${a.known?'acc':'desc'}">${a.known?(a.hist?'Do seu histórico':'Você acompanha'):'Descoberta'}</span>`+
+    (a.reviews?'<span class="b rev">Críticas</span>':'')+
+    a.genres.slice(0,3).map(g=>`<span class="g">${esc(g)}</span>`).join('')+`</div>`+
+    (a.summary?`<div class="s">${esc(a.summary)}</div>`:'')+
+    `</span></a>`).join('')+
+    (r.length>limit?`<button class="btn more" data-more>Mostrar mais (${r.length-limit})</button>`:'');
+}
+function update(key,val){
+  if(val)S[key]=val;else delete S[key];
+  limit=PAGE;writeHash(false);renderAlbums();
+}
+let qt;$('#q').addEventListener('input',e=>{clearTimeout(qt);const v=e.target.value;qt=setTimeout(()=>update('q',v.trim()?v:''),120)});
+$('#q').addEventListener('keydown',e=>{if(e.key==='Enter')e.target.blur()});
+$('#qx').onclick=()=>{$('#q').value='';update('q','');$('#q').focus()};
+$('#chips').onclick=e=>{const b=e.target.closest('.chip');if(!b)return;const{k,v}=b.dataset;update(k,S[k]===v?'':v)};
+$$('.sel select').forEach(s=>s.onchange=()=>update(s.dataset.k,s.value));
+function clearFilters(){const s=S.s;S={};if(s)S.s=s;limit=PAGE;writeHash(false);renderAlbums()}
+$('#clr').onclick=clearFilters;
+$('#list').onclick=e=>{
+  if(e.target.closest('[data-clear]'))clearFilters();
+  else if(e.target.closest('[data-more]')){limit+=PAGE;renderAlbums()}
+};
+const bar=$('#bar');
+if('IntersectionObserver' in window){const s=document.createElement('div');bar.before(s);new IntersectionObserver(([x])=>bar.classList.toggle('stuck',!x.isIntersecting)).observe(s)}
+
+function route(){readHash();showTab(tab,false);if(D)renderAlbums()}
+addEventListener('popstate',route);addEventListener('hashchange',route);
+
+/* ---------- dados ---------- */
+fetch('albums.json').then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}).then(d=>{
+  D=d;EDS=Object.fromEntries(d.editions.map((e,i)=>[e.file,Object.assign(e,{_i:i})]));
+  d.albums.forEach((a,i)=>{
+    const e=EDS[a.ed]||{title:a.ed,_i:999};
+    a.genres=a.genres||[];
+    a._et=String(e.title).replace(/^Discos da semana · /,'Semana de ').replace(/ que você precisa conhecer$/,'');a._o=e._i*10000+(a.pos||i);a._g=a.genres.map(N);
+    a._s=N([a.artist,a.album,a.genres.join(' '),a.date,e.title,a.text].join(' '));
+  });
+  $('#n-eds').textContent=d.editions.length;$('#n-als').textContent=d.albums.length;
+  renderEditions();fillSelects();route();
+}).catch(()=>{$('#edicoes').innerHTML='<div class="note">Não foi possível carregar o índice de discos. Verifique a conexão e tente de novo.</div>'});
+
+/* ---------- offline, instalação, atualização ---------- */
+const net=()=>{$('#off').hidden=navigator.onLine};addEventListener('online',net);addEventListener('offline',net);net();
+
+function toast(msg,action){
+  $('#tmsg').textContent=msg;const b=$('#tbtn');b.hidden=!action;b.onclick=action||null;
+  $('#toast').classList.add('show');clearTimeout(toast.h);toast.h=setTimeout(()=>$('#toast').classList.remove('show'),action?12000:3000);
+}
+let deferred=null;
+const standalone=()=>matchMedia('(display-mode: standalone)').matches||navigator.standalone;
+addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e;if(!standalone())$('#inst').hidden=false});
+$('#inst').onclick=async()=>{
+  if(!deferred)return;$('#inst').hidden=true;deferred.prompt();
+  try{const{outcome}=await deferred.userChoice;if(outcome!=='accepted')$('#inst').hidden=false}catch(_){}
+  deferred=null;
+};
+addEventListener('appinstalled',()=>{deferred=null;$('#inst').hidden=true;toast('App instalado ✓')});
+
+if('serviceWorker' in navigator){
+  const hadController=!!navigator.serviceWorker.controller;
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(hadController)toast('Nova edição ou versão disponível',()=>location.reload())});
+  addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+}
+})();
+</script>
+</body></html>

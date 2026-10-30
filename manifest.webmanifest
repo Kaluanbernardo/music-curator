@@ -1,1 +1,25 @@
-{"name":"Music Curator · Discos","short_name":"Discos","lang":"pt-BR","start_url":"./index.html","scope":"./","display":"standalone","background_color":"#14121a","theme_color":"#14121a","description":"Todas as edições do Music Curator, com busca e filtros","icons":[{"src":"icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},{"src":"icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}]}
+{
+  "id": "./",
+  "name": "Music Curator · Discos",
+  "short_name": "Discos",
+  "description": "Todas as edições do Music Curator, com busca e filtros de discos",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "start_url": "./?origem=app",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#14121a",
+  "theme_color": "#14121a",
+  "categories": ["music", "entertainment"],
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+    {"src": "icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable"},
+    {"src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ],
+  "shortcuts": [
+    {"name": "Edições", "short_name": "Edições", "url": "./#edicoes", "icons": [{"src": "icon-192.png", "sizes": "192x192"}]},
+    {"name": "Buscar discos", "short_name": "Discos", "url": "./#discos", "icons": [{"src": "icon-192.png", "sizes": "192x192"}]}
+  ]
+}
