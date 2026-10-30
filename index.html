@@ -1,1 +1,42 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Music Curator</title><meta http-equiv="refresh" content="0; url=semana-2026-10-30.html"><style>body{background:#14121a;color:#f2eff7;font:18px sans-serif;padding:30px}a{color:#1ed760}</style></head><body><h1>Music Curator</h1><ul><li><a href="semana-2026-10-30.html">Discos da semana · 30 out 2026</a></li><li><a href="50-do-ano-2026.html">Edição especial · 50 discos de 2026</a></li><li><a href="semana-2026-10-23.html">Discos da semana · 23 out 2026</a></li><li><a href="outubro-2026.html">Discos de outubro 2026</a></li></ul></body></html>
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Music Curator · Discos</title><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#14121a"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
+<style>:root{--bg:#14121a;--card:#1e1b27;--fg:#f2eff7;--mut:#a9a3b8;--acc:#1ed760;--line:#2e2a3a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.45 system-ui,sans-serif}
+header{padding:18px 16px 6px;max-width:760px;margin:auto}h1{margin:0;font-size:1.5rem}header p{margin:4px 0;color:var(--mut);font-size:.9rem}
+.tabs{display:flex;gap:6px;max-width:760px;margin:8px auto;padding:0 16px}.tabs button,.chip{background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:999px;padding:7px 13px;font-size:.88rem}
+.tabs button.on,.chip.on{background:var(--acc);color:#0b0b0b;border-color:var(--acc);font-weight:600}
+main{max-width:760px;margin:auto;padding:0 16px 40px}.bar{position:sticky;top:0;background:var(--bg);padding:8px 0;z-index:2}
+input,select{width:100%;background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:12px;padding:11px 13px;font-size:1rem}
+.chips{display:flex;gap:6px;overflow-x:auto;padding:8px 0;scrollbar-width:none}.chip{white-space:nowrap;flex:none}
+.row{display:flex;gap:6px}.row select{flex:1;padding:8px}.cnt{color:var(--mut);font-size:.85rem;margin:4px 0}
+.ed,.al{display:flex;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px;margin:8px 0;color:inherit;text-decoration:none;align-items:center}
+.ed b{display:block}.ed small,.al small{color:var(--mut)}.al img{width:64px;height:64px;border-radius:8px;flex:none;object-fit:cover}
+.al .t{font-weight:600}.tg{display:inline-block;font-size:.72rem;border:1px solid var(--line);border-radius:6px;padding:1px 6px;margin:3px 3px 0 0;color:var(--mut)}
+.tg.n{color:#ffd166}.tg.k{color:var(--acc)}#inst{display:none;margin-left:auto}</style></head><body>
+<header><h1>🎧 Music Curator</h1><p>Todas as edições e discos, com busca e filtros.</p></header>
+<div class="tabs"><button class="on" data-t="eds">Edições</button><button data-t="als">Discos</button><button id="inst" class="chip">⬇ Instalar</button></div>
+<main><section id="eds"></section>
+<section id="als" hidden><div class="bar"><input id="q" type="search" placeholder="Buscar artista, disco, texto…">
+<div class="chips" id="ch"><button class="chip" data-f="nac">🇧🇷 Nacionais</button><button class="chip" data-f="int">🌍 Internacionais</button><button class="chip" data-f="known">Você acompanha</button><button class="chip" data-f="disc">Descobertas</button><button class="chip" data-f="rev">Com críticas</button></div>
+<div class="row"><select id="fe"><option value="">Todas as edições</option></select><select id="fg"><option value="">Todos os gêneros</option></select><select id="fy"><option value="">Ano</option></select></div>
+<div class="cnt" id="cnt"></div></div><div id="list"></div></section></main>
+<script>
+const $=s=>document.querySelector(s),N=s=>(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();let D,F=new Set();
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+document.querySelectorAll('.tabs [data-t]').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs [data-t]').forEach(x=>x.classList.toggle('on',x==b));$('#eds').hidden=b.dataset.t!='eds';$('#als').hidden=b.dataset.t!='als';location.hash=b.dataset.t});
+fetch('albums.json').then(r=>r.json()).then(d=>{D=d;const T=Object.fromEntries(d.editions.map(e=>[e.file,e.title]));
+$('#eds').innerHTML=d.editions.map(e=>`<a class="ed" href="${e.file}"><span style="font-size:1.6rem">${e.kind=='semanal'?'📅':'⭐'}</span><span><b>${esc(e.title)}</b><small>${e.kind=='semanal'?'Semanal':'Edição especial'} · ${e.count} discos</small></span></a>`).join('');
+d.editions.forEach(e=>$('#fe').add(new Option(e.title,e.file)));
+const gs={};d.albums.forEach(a=>a.genres.forEach(g=>{const k=N(g);gs[k]=gs[k]||g}));Object.keys(gs).sort().forEach(k=>$('#fg').add(new Option(gs[k],k)));
+[...new Set(d.albums.map(a=>a.year))].sort().reverse().forEach(y=>$('#fy').add(new Option(y,y)));
+d.albums.forEach(a=>{a.edt=T[a.ed];a.s=N([a.artist,a.album,a.genres.join(' '),a.text].join(' '))});
+if(location.hash=='#als')document.querySelector('[data-t=als]').click();render()});
+function render(){const q=N($('#q').value).split(/\s+/).filter(Boolean),e=$('#fe').value,g=$('#fg').value,y=$('#fy').value;
+const r=D.albums.filter(a=>q.every(w=>a.s.includes(w))&&(!e||a.ed==e)&&(!g||a.genres.some(x=>N(x)==g))&&(!y||a.year==y)&&(!F.has('nac')||a.nac)&&(!F.has('int')||!a.nac)&&(!F.has('known')||a.known)&&(!F.has('disc')||!a.known)&&(!F.has('rev')||a.reviews));
+$('#cnt').textContent=r.length+' discos';
+$('#list').innerHTML=r.map(a=>`<a class="al" href="${a.ed}#${a.id}"><img src="${esc(a.cover)}" alt="" loading="lazy"><span><span class="t">${esc(a.album)}</span><br><small>${esc(a.artist)} · ${esc(a.edt)}</small><br><span class="tg ${a.nac?'n':''}">${a.nac?'🇧🇷 Nacional':'🌍 Intern.'}</span><span class="tg ${a.known?'k':''}">${a.known?'Você acompanha':'Descoberta'}</span>${a.genres.slice(0,2).map(x=>`<span class="tg">${esc(x)}</span>`).join('')}</span></a>`).join('')}
+$('#q').oninput=render;['#fe','#fg','#fy'].forEach(s=>$(s).onchange=render);
+$('#ch').onclick=ev=>{const b=ev.target.closest('.chip');if(!b)return;const f=b.dataset.f;F.has(f)?F.delete(f):F.add(f);b.classList.toggle('on');render()};
+if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js');
+let P;addEventListener('beforeinstallprompt',e=>{e.preventDefault();P=e;$('#inst').style.display='block'});$('#inst').onclick=()=>{P&&P.prompt();$('#inst').style.display='none'};
+</script></body></html>
